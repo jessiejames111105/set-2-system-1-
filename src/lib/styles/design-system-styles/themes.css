@@ -1,0 +1,317 @@
+/* Theme Configurations */
+/* Light and Dark Mode Theme Overrides */
+
+/* Removed automatic dark mode media query to ensure light mode is always default */
+/* Users can still manually toggle to dark mode using the theme toggle button */
+
+/* Manual Light Mode Toggle - Forces light mode even when system prefers dark */
+[data-theme="light"] {
+  /* Light mode variables (override system dark preference) */
+  --surface: #ffffff;
+  --surface-variant: #e4e1e1;
+  --surface-container: #fafafa;
+  --surface-container-low: #f8f8f8;
+  --surface-container-high: #f0f0f0;
+  --on-surface: #1c1b1f;
+  --on-surface-variant: #49454f;
+  --outline: #79747e;
+  --outline-variant: #cac4d0;
+  
+  --md-sys-color-primary: var(--school-primary);
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #e3f2fd;
+  --md-sys-color-on-primary-container: #0d47a1;
+  
+  --md-sys-color-secondary: var(--school-secondary);
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #e1f5fe;
+  --md-sys-color-on-secondary-container: #0288d1;
+  
+  
+  --md-sys-color-surface: var(--surface);
+  --md-sys-color-on-surface: var(--on-surface);
+  --md-sys-color-surface-variant: var(--surface-variant);
+  --md-sys-color-on-surface-variant: var(--on-surface-variant);
+  --md-sys-color-surface-container: var(--surface-container);
+  --md-sys-color-surface-container-low: var(--surface-container-low);
+  --md-sys-color-surface-container-highest: var(--surface-container-highest);
+  
+  --md-sys-color-outline: var(--outline);
+  --md-sys-color-outline-variant: var(--outline-variant);
+  
+  /* Hover State Colors - Light Mode */
+  --md-sys-color-surface-container-hover: #f0f0f0;
+  --md-sys-color-primary-hover: #1976d2;
+  --md-sys-color-secondary-hover: #ff8f00;
+  
+  --md-sys-color-error: var(--error);
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-error-container: #fc657c;
+  --md-sys-color-on-error-container: #b71c1c;
+  
+  /* Grade Performance Colors - Light Mode */
+  --grade-excellent: #2e7d32;
+  --grade-good: #f57f17;
+  --grade-satisfactory: #ff9800;
+  --grade-needs-improvement: #d32f2f;
+  --grade-no-grade: #757575;
+  
+  /* Subject Card Colors - Light Mode */
+  --subject-card-blue-border: #2196f3;
+  --subject-card-blue-text: #0d47a1;
+  --subject-card-blue-icon: #2196f3;
+  
+  --subject-card-green-border: #4caf50;
+  --subject-card-green-text: #1b5e20;
+  --subject-card-green-icon: #4caf50;
+  
+  --subject-card-purple-border: #9c27b0;
+  --subject-card-purple-text: #4a148c;
+  --subject-card-purple-icon: #9c27b0;
+  
+  --subject-card-yellow-border: #ffc107;
+  --subject-card-yellow-text: #ff6f00;
+  --subject-card-yellow-icon: #ffc107;
+  
+  --subject-card-orange-border: #e95e0d;
+  --subject-card-orange-text: #e65100;
+  --subject-card-orange-icon-bg: #ff9800;
+  --subject-card-orange-icon-text: #ffffff;
+  
+  --subject-card-red-border: #f44336;
+  --subject-card-red-text: #c62828;
+  --subject-card-red-icon: #f44336;
+  
+  --subject-card-teal-border: #009688;
+  --subject-card-teal-text: #004d40;
+  --subject-card-teal-icon: #009688;
+  
+  --subject-card-indigo-border: #3f51b5;
+  --subject-card-indigo-text: #1a237e;
+  --subject-card-indigo-icon: #3f51b5;
+  
+  --subject-card-pink-border: #e91e63;
+  --subject-card-pink-text: #880e4f;
+  --subject-card-pink-icon: #e91e63;
+  
+  --subject-card-cyan-border: #00bcd4;
+  --subject-card-cyan-text: #006064;
+  --subject-card-cyan-icon: #00bcd4;
+  
+  --subject-card-lime-border: #cddc39;
+  --subject-card-lime-text: #827717;
+  --subject-card-lime-icon: #cddc39;
+  
+  --subject-card-amber-border: #ffc107;
+  --subject-card-amber-text: #ff6f00;
+  --subject-card-amber-icon: #ffc107;
+  
+  --subject-card-deeporange-border: #ff5722;
+  --subject-card-deeporange-text: #bf360c;
+  --subject-card-deeporange-icon: #ff5722;
+  
+  /* Unverified indicator - Light Mode */
+  --unverified-indicator: var(--md-sys-color-warning);
+  
+  /* Status Colors - Light Mode */
+  /* On Hold - Yellow */
+  --status-on-hold-bg: #fffde7;
+  --status-on-hold-border: #fdd835;
+  --status-on-hold-text: #f57f17;
+  
+  /* Verifying - Indigo */
+  --status-verifying-bg: #e8eaf6;
+  --status-verifying-border: #5c6bc0;
+  --status-verifying-text: #3949ab;
+  
+  /* Processing - Orange */
+  --status-processing-bg: #fff3e0;
+  --status-processing-border: #ff9800;
+  --status-processing-text: #f57c00;
+  
+  /* For Pickup - Cyan */
+  --status-for-pickup-bg: #e0f7fa;
+  --status-for-pickup-border: #00bcd4;
+  --status-for-pickup-text: #00838f;
+  
+  /* Released - Green */
+  --status-released-bg: #e8f5e8;
+  --status-released-border: #4caf50;
+  --status-released-text: #2e7d32;
+  
+  /* Completed - Green (alias for released) */
+  --status-completed-bg: #e8f5e8;
+  --status-completed-border: #4caf50;
+  --status-completed-text: #2e7d32;
+  
+  /* Rejected - Red */
+  --status-rejected-bg: #ffebee;
+  --status-rejected-border: #f44336;
+  --status-rejected-text: #d32f2f;
+  
+  /* Pending - Orange */
+  --status-pending-bg: #fff3e0;
+  --status-pending-border: #ff9800;
+  --status-pending-text: #f57c00;
+  
+  /* Cancelled - Gray */
+  --status-cancelled-bg: #f5f5f5;
+  --status-cancelled-border: #9e9e9e;
+  --status-cancelled-text: #616161;
+}
+
+/* Manual Dark Mode Toggle - Forces dark mode even when system prefers light */
+[data-theme="dark"] {
+  /* Dark mode variables (override system light preference) */
+  --surface: #121212;
+  --surface-variant: #1e1e1e;
+  --surface-container: #242424;
+  --surface-container-low: #1a1a1a;
+  --surface-container-high: #2a2a2a;
+  --surface-container-highest: #2f2f2f;
+  --on-surface: #f5f5f5;
+  --on-surface-variant: #e0e0e0;
+  --outline: #9e9e9e;
+  --outline-variant: #616161;
+  
+  --md-sys-color-primary: #90caf9;
+  --md-sys-color-on-primary: #0d47a1;
+  --md-sys-color-primary-container: #1976d2;
+  --md-sys-color-on-primary-container: #ffffff;
+  
+  --md-sys-color-secondary: #4fc3f7;
+  --md-sys-color-on-secondary: #01579b;
+  --md-sys-color-secondary-container: #328fc5;
+  --md-sys-color-on-secondary-container: #e1f5fe;
+  
+  
+  --md-sys-color-surface: var(--surface);
+  --md-sys-color-on-surface: var(--on-surface);
+  --md-sys-color-surface-variant: var(--surface-variant);
+  --md-sys-color-on-surface-variant: var(--on-surface-variant);
+  --md-sys-color-surface-container: var(--surface-container);
+  --md-sys-color-surface-container-low: var(--surface-container-low);
+  
+  --md-sys-color-outline: var(--outline);
+  --md-sys-color-outline-variant: var(--outline-variant);
+  
+  /* Hover State Colors - Dark Mode */
+  --md-sys-color-surface-container-hover: #3a3a3a;
+  --md-sys-color-primary-hover: #64b5f6;
+  --md-sys-color-secondary-hover: #ffcc80;
+  
+  --md-sys-color-error: #f48fb1;
+  --md-sys-color-on-error: #b71c1c;
+  --md-sys-color-error-container: #831d1d;
+  --md-sys-color-on-error-container: #ffebee;
+  
+  /* Grade Performance Colors - Dark Mode */
+  --grade-excellent: #4caf50;
+  --grade-good: #ffb300;
+  --grade-satisfactory: #ffb74d;
+  --grade-needs-improvement: #c23f36;
+  --grade-no-grade: #bdbdbd;
+  
+  /* Subject Card Colors - Dark Mode */
+  --subject-card-blue-border: #2196f3;
+  --subject-card-blue-text: #90caf9;
+  --subject-card-blue-icon: #73c9fc;
+  
+  --subject-card-green-border: #66bb6a;
+  --subject-card-green-text: #c8e6c9;
+  --subject-card-green-icon: #35c03e;
+  
+  --subject-card-purple-border: #ba68c8;
+  --subject-card-purple-text: #e1bee7;
+  --subject-card-purple-icon: #9a4ff7;
+  
+  --subject-card-yellow-border: #ffcc02;
+  --subject-card-yellow-text: #fff3c4;
+  --subject-card-yellow-icon: #eed889;
+  
+  --subject-card-orange-border: #fa7000;
+  --subject-card-orange-text: #ffe0b2;
+  --subject-card-orange-icon-bg: #ffb74d;
+  --subject-card-orange-icon-text: #e65100;
+  
+  --subject-card-red-border: #ef5350;
+  --subject-card-red-text: #ffcdd2;
+  --subject-card-red-icon: #ef5350;
+  
+  --subject-card-teal-border: #26a69a;
+  --subject-card-teal-text: #b2dfdb;
+  --subject-card-teal-icon: #26a69a;
+  
+  --subject-card-indigo-border: #5c6bc0;
+  --subject-card-indigo-text: #c5cae9;
+  --subject-card-indigo-icon: #5c6bc0;
+  
+  --subject-card-pink-border: #ec407a;
+  --subject-card-pink-text: #f8bbd0;
+  --subject-card-pink-icon: #ec407a;
+  
+  --subject-card-cyan-border: #26c6da;
+  --subject-card-cyan-text: #b2ebf2;
+  --subject-card-cyan-icon: #26c6da;
+  
+  --subject-card-lime-border: #d4e157;
+  --subject-card-lime-text: #f0f4c3;
+  --subject-card-lime-icon: #d4e157;
+  
+  --subject-card-amber-border: #ffca28;
+  --subject-card-amber-text: #ffecb3;
+  --subject-card-amber-icon: #ffca28;
+  
+  --subject-card-deeporange-border: #ff7043;
+  --subject-card-deeporange-text: #ffccbc;
+  --subject-card-deeporange-icon: #ff7043;
+  
+  /* Unverified indicator - Dark Mode */
+  --unverified-indicator: #ff9800;
+  
+  /* Status Colors - Dark Mode */
+  /* On Hold - Yellow */
+  --status-on-hold-bg: #f57f178e;
+  --status-on-hold-border: #fdd835;
+  --status-on-hold-text: #fff9c4;
+  
+  /* Verifying - Indigo */
+  --status-verifying-bg: #283593;
+  --status-verifying-border: #5c6bc0;
+  --status-verifying-text: #c5cae9;
+  
+  /* Processing - Orange */
+  --status-processing-bg: #e651007c;
+  --status-processing-border: #ff9900c9;
+  --status-processing-text: #ffcc80;
+  
+  /* For Pickup - Cyan */
+  --status-for-pickup-bg: #006064;
+  --status-for-pickup-border: #26c6da;
+  --status-for-pickup-text: #80deea;
+  
+  /* Released - Green */
+  --status-released-bg: #1b5e20;
+  --status-released-border: #4caf50;
+  --status-released-text: #a5d6a7;
+  
+  /* Completed - Green (alias for released) */
+  --status-completed-bg: #1b5e20;
+  --status-completed-border: #4caf50;
+  --status-completed-text: #a5d6a7;
+  
+  /* Rejected - Red */
+  --status-rejected-bg: #b71c1c65;
+  --status-rejected-border: #f44336;
+  --status-rejected-text: #ffcdd2;
+  
+  /* Pending - Orange */
+  --status-pending-bg: #e651003a;
+  --status-pending-border: #ff9800;
+  --status-pending-text: #ffcc80;
+  
+  /* Cancelled - Gray */
+  --status-cancelled-bg: #424242;
+  --status-cancelled-border: #9e9e9e;
+  --status-cancelled-text: #e0e0e0;
+}

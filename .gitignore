@@ -1,0 +1,28 @@
+node_modules
+
+# Output
+.output
+.vercel
+.netlify
+.wrangler
+/.svelte-kit
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.cursor
+
+# Env
+.env
+.env.*
+!.env.example
+!.env.test
+
+database-schema.sql
+activity-types-schema.sql
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*

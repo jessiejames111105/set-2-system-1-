@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+		
+		<!-- PWA Meta Tags -->
+		<!-- Dynamic theme color based on light/dark mode -->
+		<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
+		<meta name="description" content="Student Enrollment and Tracking System" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="apple-mobile-web-app-title" content="SET-2 System" />
+		<link rel="apple-touch-icon" href="/pwa-192x192.png" />
+		<link rel="manifest" href="/manifest.json" />
+		
+		<!-- Preload critical resources -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+		
+		<!-- Load Material Symbols immediately for loading screen -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
+		
+		<!-- Fallback for browsers that don't support preload -->
+		<noscript>
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
+		</noscript>
+		
+		<!-- Critical CSS inlined for instant render -->
+		<style>
+			/* Critical CSS - Base styles for immediate render */
+			* {
+				-webkit-tap-highlight-color: transparent;
+				-webkit-touch-callout: none;
+				touch-action: manipulation;
+				box-sizing: border-box;
+			}
+			
+			:root {
+				/* Essential variables for initial render */
+				--school-primary: #1565c0;
+				--md-sys-color-surface: #ffffff;
+				--md-sys-color-on-surface: #1c1b1f;
+				--md-sys-color-primary: var(--school-primary);
+				--md-sys-color-primary-container: #e3f2fd;
+				--transition-normal: 0.3s ease;
+			}
+			
+			[data-theme="dark"] {
+				--md-sys-color-surface: #121212;
+				--md-sys-color-on-surface: #e0e0e0;
+				--md-sys-color-primary-container: #1e3a8a;
+			}
+			
+			html {
+				background-color: var(--md-sys-color-surface);
+				transition: background-color var(--transition-normal) !important;
+			}
+			
+			body {
+				margin: 0;
+				padding: 0;
+				font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 1.5;
+				color: var(--md-sys-color-on-surface);
+				background-color: var(--md-sys-color-surface);
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				transition: color var(--transition-normal), background-color var(--transition-normal);
+			}
+			
+			/* Loading state styles */
+			.app-loading {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: var(--md-sys-color-surface);
+				transition: opacity 0.3s ease;
+				z-index: 9999;
+			}
+			
+			.app-loading-content {
+				text-align: center;
+			}
+
+			.app-loading-icon{
+				fill: var(--md-sys-color-on-surface);
+				height: 120px;
+			}
+			
+			.app-loading-progress {
+				width: 280px;
+				display: flex;
+				align-items: center;
+				gap: 12px;
+				margin-top: 8px;
+			}
+			
+			.app-loading-bar {
+					flex: 1;
+					height: 6px;
+					background-color: var(--md-sys-color-outline-variant);
+					border-radius: 3px;
+					overflow: hidden;
+					position: relative;
+			}
+
+			[data-theme="light"] .app-loading-fill {
+    			background: linear-gradient(90deg, #222831 0%, #393e46 100%);
+			}
+
+			.app-loading-fill {
+				height: 100%;
+				background: linear-gradient(90deg, 
+					var(--md-sys-color-primary-container) 0%, 
+					var(--md-sys-color-secondary-container) 100%);
+				border-radius: 3px;
+				transition: width 0.1s linear;
+				position: relative;
+				overflow: hidden;
+				width: 0%;
+			}
+			
+			.app-loading-fill::after {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: linear-gradient(90deg, 
+					transparent 0%, 
+					rgba(255, 255, 255, 0.4) 30%,
+					rgba(255, 255, 255, 0.6) 50%,
+					rgba(255, 255, 255, 0.4) 70%,
+					transparent 100%);
+				animation: shimmer 1.2s ease-in-out infinite;
+				width: 100px;
+			}
+			
+			@keyframes shimmer {
+				0% { 
+					transform: translateX(-120px);
+					opacity: 0;
+				}
+				20% {
+					opacity: 1;
+				}
+				80% {
+					opacity: 1;
+				}
+				100% { 
+					transform: translateX(300px);
+					opacity: 0;
+				}
+			}
+			
+			/* Hide loading when app is ready */
+			.app-ready .app-loading {
+				opacity: 0;
+				pointer-events: none;
+			}
+		</style>
+		
+		<script>
+			// Set theme immediately to prevent flash
+			(function() {
+				try {
+					const savedTheme = localStorage.getItem('theme');
+					// Default to light mode if no saved preference
+					const theme = savedTheme === 'dark' ? 'dark' : 'light';
+					document.documentElement.setAttribute('data-theme', theme);
+					
+					// Update theme-color meta tag dynamically
+					const themeColor = theme === 'dark' ? '#121212' : '#FFFFFF';
+					let metaThemeColor = document.querySelector('meta[name="theme-color"]:not([media])');
+					if (!metaThemeColor) {
+						metaThemeColor = document.createElement('meta');
+						metaThemeColor.setAttribute('name', 'theme-color');
+						document.head.appendChild(metaThemeColor);
+					}
+					metaThemeColor.setAttribute('content', themeColor);
+				} catch (e) {
+					// Fallback to light mode if localStorage is not available
+					document.documentElement.setAttribute('data-theme', 'light');
+					const metaThemeColor = document.querySelector('meta[name="theme-color"]:not([media])');
+					if (metaThemeColor) {
+						metaThemeColor.setAttribute('content', '#FFFFFF');
+					}
+				}
+			})();
+			
+			// App loading management
+			window.appLoadingManager = {
+				isReady: false,
+				readyCallbacks: [],
+				loadingProgress: 0,
+				
+				onReady: function(callback) {
+					if (this.isReady) {
+						callback();
+					} else {
+						this.readyCallbacks.push(callback);
+					}
+				},
+				
+				setReady: function() {
+					this.isReady = true;
+					document.documentElement.classList.add('app-ready');
+					this.readyCallbacks.forEach(callback => callback());
+					this.readyCallbacks = [];
+				},
+				
+				updateProgress: function(progress) {
+					this.loadingProgress = progress;
+					const fillElement = document.getElementById('app-loading-fill');
+					if (fillElement) {
+						fillElement.style.width = progress + '%';
+					}
+				}
+			};
+			
+			// Start smooth progress animation
+			let progress = 0;
+			const progressInterval = setInterval(() => {
+				progress += 1;
+				window.appLoadingManager.updateProgress(progress);
+				if (progress >= 100) {
+					clearInterval(progressInterval);
+				}
+			}, 28); // 100 steps over ~2.8 seconds for smooth animation
+			
+			// Auto-hide loading after maximum time
+			setTimeout(() => {
+				if (!window.appLoadingManager.isReady) {
+					window.appLoadingManager.setReady();
+				}
+			}, 3000);
+		</script>
+		
+		%sveltekit.head%
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<!-- App loading state -->
+		<div class="app-loading" id="app-loading">
+			<div class="app-loading-content">
+			<svg class="app-loading-icon" xmlns="http://www.w3.org/2000/svg" height="120px" viewBox="0 -960 960 960" width="120px" fill="#F4F4F4"><path d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z"/></svg>
+				
+				<!-- Progress bar -->
+				<div class="app-loading-progress">
+					<div class="app-loading-bar">
+						<div class="app-loading-fill" id="app-loading-fill"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
+</html>

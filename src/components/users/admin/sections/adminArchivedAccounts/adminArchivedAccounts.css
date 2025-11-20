@@ -1,0 +1,607 @@
+/* Archived Students Page Styles */
+
+.aas-archived-students-container {
+  color: var(--md-sys-color-on-surface);
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+.aas-archived-students-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.aas-archived-students-container::-webkit-scrollbar-track {
+  background: var(--md-sys-color-surface-variant);
+  border-radius: var(--radius-sm);
+}
+
+.aas-archived-students-container::-webkit-scrollbar-thumb {
+  background: var(--md-sys-color-outline-variant);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-normal);
+}
+
+.aas-archived-students-container::-webkit-scrollbar-thumb:hover {
+  background: var(--md-sys-color-outline);
+}
+
+/* Header Styles */
+.aas-admin-student-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.aas-header-content {
+  flex: 1;
+}
+
+.aas-page-title {
+  font-family: var(--md-sys-typescale-headline-large-font);
+  font-size: var(--md-sys-typescale-headline-large-size);
+  font-weight: var(--md-sys-typescale-headline-large-weight);
+  color: var(--md-sys-color-on-surface);
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.aas-page-subtitle {
+  font-family: var(--md-sys-typescale-body-large-font);
+  font-size: var(--md-sys-typescale-body-large-size);
+  color: var(--md-sys-color-on-surface-variant);
+  margin: 0;
+}
+
+/* Filters Section */
+.aas-filters-section {
+  margin-bottom: var(--spacing-xl);
+} 
+
+/* Search and Filter Container */
+.aas-search-filter-container {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-lg);
+}
+
+.aas-search-container {
+  flex: 1;
+  min-width: 300px;
+}
+
+.aas-search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--md-sys-color-surface);
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+  min-height: 58px;
+}
+
+.aas-search-input-wrapper:focus-within {
+  border-color: var(--md-sys-color-primary);
+  box-shadow: 0 0 0 2px rgba(var(--md-sys-color-primary-rgb), 0.2);
+}
+
+.aas-search-icon {
+  position: absolute;
+  left: calc(var(--spacing-sm) + 5px);
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 20px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.aas-search-input {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  padding-left: 40px;
+  padding-right: 40px;
+  border: none;
+  border-radius: var(--radius-md);
+  background-color: transparent;
+  color: var(--md-sys-color-on-surface);
+  font-size: var(--md-sys-typescale-body-medium-size);
+  transition: all var(--transition-normal);
+  box-sizing: border-box;
+}
+
+.aas-search-input:focus {
+  outline: none;
+}
+
+.aas-search-input::placeholder {
+  color: var(--md-sys-color-on-surface-variant);
+  font-style: italic;
+}
+
+.aas-clear-search-button {
+  position: absolute;
+  right: var(--spacing-xs);
+  background: none;
+  border: none;
+  color: var(--md-sys-color-on-surface-variant);
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+  font-size: 18px;
+  z-index: 2;
+}
+
+.aas-clear-search-button:hover {
+  background-color: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface);
+}
+
+/* Filter Container */
+.aas-filter-container {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.aas-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.aas-filter-label {
+  font-family: var(--md-sys-typescale-body-medium-font);
+  font-size: var(--md-sys-typescale-body-medium-size);
+  font-weight: var(--md-sys-typescale-body-medium-weight);
+  color: var(--md-sys-color-on-surface);
+}
+
+/* Custom Dropdown */
+.aas-custom-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.aas-dropdown-trigger {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--radius-md);
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  font-family: var(--md-sys-typescale-body-large-font);
+  font-size: var(--md-sys-typescale-body-large-size);
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 56px;
+  box-sizing: border-box;
+}
+
+.aas-dropdown-trigger:hover {
+  border-color: var(--md-sys-color-outline);
+}
+
+.aas-dropdown-trigger:focus {
+  outline: none;
+  border-color: var(--md-sys-color-primary);
+  box-shadow: 0 0 0 1px var(--md-sys-color-primary);
+}
+
+.aas-dropdown-trigger.selected {
+  border-color: var(--md-sys-color-primary);
+}
+
+.aas-filter-trigger {
+  min-width: 180px;
+  font-size: var(--md-sys-typescale-body-medium-size);
+}
+
+.aas-selected-option {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex: 1;
+}
+
+.aas-option-icon {
+  font-size: 20px;
+  color: var(--md-sys-color-primary);
+}
+
+.aas-option-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.aas-option-name {
+  font-weight: var(--md-sys-typescale-body-medium-weight);
+  color: var(--md-sys-color-on-surface);
+}
+
+.aas-placeholder {
+  color: var(--md-sys-color-on-surface-variant);
+  font-style: italic;
+}
+
+.aas-dropdown-arrow {
+  font-size: 24px;
+  color: var(--md-sys-color-on-surface-variant);
+  transition: transform var(--transition-normal);
+}
+
+.aas-custom-dropdown.open .aas-dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.aas-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all var(--transition-normal);
+}
+
+.aas-custom-dropdown.open .aas-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.aas-dropdown-option {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--transition-normal);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.aas-dropdown-option:hover {
+  background-color: var(--md-sys-color-surface-variant);
+}
+
+.aas-dropdown-option.selected {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+/* Clear Filters Button */
+.aas-clear-filters-button {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  background-color: var(--md-sys-color-surface);
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  color: var(--md-sys-color-on-surface-variant);
+  cursor: pointer;
+  font-size: var(--md-sys-typescale-body-medium-size);
+  transition: all var(--transition-normal);
+  min-height: 56px;
+  white-space: nowrap;
+}
+
+.aas-clear-filters-button:hover {
+  background-color: var(--md-sys-color-surface-variant);
+  border-color: var(--md-sys-color-outline);
+  color: var(--md-sys-color-on-surface);
+}
+
+/* Students List Section */
+.aas-students-list-section {
+  margin-top: var(--spacing-lg);
+}
+
+/* Loading Container */
+.aas-loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xxl);
+  gap: var(--spacing-md);
+  min-height: 200px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.aas-student-loader {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--md-sys-color-on-surface-variant);
+  box-shadow: 32px 0 #fff, -32px 0 #fff;
+  position: relative;
+  animation: aas-flash 0.5s ease-out infinite alternate;
+  margin-bottom: var(--spacing-md);
+}
+
+@keyframes aas-flash {
+  0% {
+    background-color: #FFF2;
+    box-shadow: 32px 0 #FFF2, -32px 0 #FFF;
+  }
+  50% {
+    background-color: #FFF;
+    box-shadow: 32px 0 #FFF2, -32px 0 #FFF2;
+  }
+  100% {
+    background-color: #FFF2;
+    box-shadow: 32px 0 #FFF, -32px 0 #FFF2;
+  }
+}
+
+.aas-loading-text {
+  font-family: var(--md-sys-typescale-body-large-font);
+  font-size: var(--md-sys-typescale-body-large-size);
+  color: var(--md-sys-color-on-surface-variant);
+  margin: 0;
+  text-align: center;
+}
+
+/* Students Grid */
+.aas-students-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* Account Card (Student Card) */
+.aas-account-card {
+  background-color: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  color: var(--md-sys-color-on-surface);
+}
+
+.aas-account-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Account Card Header */
+.aas-account-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Action Buttons */
+.aas-action-buttons {
+  display: flex;
+  gap: var(--spacing-xs);
+  align-items: center;
+}
+
+.aas-restore-button {
+	background-color: var(--md-sys-color-surface);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-md);
+	padding: var(--spacing-sm);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	flex-shrink: 0;
+	color: var(--md-sys-color-on-surface-variant);
+	cursor: pointer;
+	transition: all var(--transition-normal);
+}
+
+.aas-restore-button:hover {
+	background-color: var(--md-sys-color-surface-variant);
+	border-color: var(--md-sys-color-outline);
+	color: var(--md-sys-color-on-surface);
+	box-shadow: var(--elevation-1);
+}
+
+.aas-restore-button .material-symbols-outlined {
+	font-size: 18px;
+	transition: inherit;
+}
+
+.aas-restore-button:active {
+	background-color: var(--md-sys-color-surface-container-high);
+	box-shadow: none;
+	transform: scale(0.95);
+}
+
+.aas-account-title {
+  display: block;
+}
+
+.aas-account-id {
+  display: flex;
+  align-items: center;
+}
+
+.aas-student-id {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--md-sys-color-primary);
+  background-color: var(--md-sys-color-primary-container);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+}
+
+.aas-account-name {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface);
+}
+
+/* Archived Badge */
+.aas-archived-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 0.75rem;
+  color: var(--md-sys-color-on-surface-variant);
+  border-radius: var(--radius-sm);
+  margin-top: var(--spacing-xs);
+}
+
+.aas-archived-badge .material-symbols-outlined {
+  font-size: 14px;
+}
+
+/* Account Details */
+.aas-account-details {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-md);
+}
+
+.aas-account-detail-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 0.875rem;
+  color: var(--md-sys-color-on-surface-variant);
+  opacity: 0.85;
+}
+
+.aas-account-detail-item .material-symbols-outlined {
+  font-size: 0.875rem;
+}
+
+/* Account Type Badge */
+.account-type-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 500;
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+/* No Results */
+.aas-no-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2xl);
+  gap: var(--spacing-md);
+  text-align: center;
+}
+
+.aas-no-results-icon {
+  font-size: 64px;
+  color: var(--md-sys-color-on-surface-variant);
+  opacity: 0.5;
+}
+
+.aas-no-results p {
+  font-family: var(--md-sys-typescale-body-large-font);
+  font-size: var(--md-sys-typescale-body-large-size);
+  color: var(--md-sys-color-on-surface-variant);
+  margin: 0;
+}
+
+.aas-clear-search-button-inline {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: var(--md-sys-typescale-body-medium-size);
+  font-weight: 500;
+  transition: all var(--transition-normal);
+  margin-top: var(--spacing-sm);
+}
+
+.aas-clear-search-button-inline:hover {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .aas-students-grid {
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .aas-search-filter-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .aas-search-container {
+    min-width: unset;
+  }
+  
+  .aas-filter-container {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .aas-filter-trigger {
+    min-width: unset;
+  }
+  
+  .aas-students-grid {
+    gap: var(--spacing-md);
+  }
+  
+  .aas-account-card {
+    padding: var(--spacing-md);
+  }
+  
+  .aas-account-details {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .aas-account-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+  
+  .aas-account-name {
+    text-align: center;
+    width: 100%;
+  }
+}

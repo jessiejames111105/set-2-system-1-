@@ -1,0 +1,1094 @@
+/* Admin Document Requests Page Styles */
+
+.admin-document-requests-container {
+	color: var(--md-sys-color-on-surface);
+	box-sizing: border-box;
+	overflow-y: auto;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+	height: 100%;
+}
+
+/* Custom scrollbar */
+.admin-document-requests-container::-webkit-scrollbar {
+	width: 8px;
+}
+
+.admin-document-requests-container::-webkit-scrollbar-track {
+	background: var(--md-sys-color-surface-variant);
+	border-radius: var(--radius-sm);
+}
+
+.admin-document-requests-container::-webkit-scrollbar-thumb {
+	background: var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-sm);
+	transition: background-color var(--transition-normal);
+}
+
+.admin-document-requests-container::-webkit-scrollbar-thumb:hover {
+	background: var(--md-sys-color-outline);
+}
+
+/* Loading and Error States */
+.admindocreq-loading,
+.admindocreq-error {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: var(--spacing-xxl);
+	text-align: center;
+	gap: var(--spacing-md);
+}
+
+.admindocreq-loading-icon {
+	font-size: 48px;
+	color: var(--md-sys-color-primary);
+	animation: spin 1s linear infinite;
+}
+
+.admindocreq-error-icon {
+	font-size: 48px;
+	color: var(--md-sys-color-error);
+}
+
+.admindocreq-retry-button {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-xs);
+	padding: var(--spacing-sm) var(--spacing-md);
+	background-color: var(--md-sys-color-primary);
+	color: var(--md-sys-color-on-primary);
+	border: none;
+	border-radius: var(--radius-md);
+	cursor: pointer;
+	font-family: var(--md-sys-typescale-label-large-font);
+	font-size: var(--md-sys-typescale-label-large-size);
+	font-weight: var(--md-sys-typescale-label-large-weight);
+	transition: background-color var(--transition-normal);
+}
+
+.admindocreq-retry-button:hover {
+	background-color: var(--md-sys-color-primary-container);
+	color: var(--md-sys-color-on-primary-container);
+}
+
+@keyframes spin {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+/* Header Styles */
+.admin-docreq-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: var(--spacing-xl);
+	gap: var(--spacing-md);
+}
+
+.admin-header-content {
+	flex: 1;
+}
+
+.admin-page-title {
+	font-family: var(--md-sys-typescale-headline-large-font);
+	font-size: var(--md-sys-typescale-headline-large-size);
+	font-weight: var(--md-sys-typescale-headline-large-weight);
+	color: var(--md-sys-color-on-surface);
+	margin: 0 0 var(--spacing-xs) 0;
+}
+
+.admin-page-subtitle {
+	font-family: var(--md-sys-typescale-body-large-font);
+	font-size: var(--md-sys-typescale-body-large-size);
+	color: var(--md-sys-color-on-surface-variant);
+	margin: 0;
+}
+
+/* Section Styles */
+.admin-section-header {
+	margin-bottom: var(--spacing-md);
+}
+
+.docreq-section-title {
+    font-family: var(--md-sys-typescale-title-large-font);
+    font-size: var(--md-sys-typescale-title-large-size);
+    font-weight: var(--md-sys-typescale-title-large-weight);
+    color: var(--md-sys-color-on-surface);
+    margin: 0 0 var(--spacing-sm) 0;
+}
+
+.admin-section-subtitle {
+	font-family: var(--md-sys-typescale-body-medium-font);
+	font-size: var(--md-sys-typescale-body-medium-size);
+	color: var(--md-sys-color-on-surface-variant);
+	margin: 0;
+}
+
+/* Success Message */
+.admin-success-message {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-sm);
+	background-color: var(--md-sys-color-primary-container);
+	color: var(--md-sys-color-on-primary-container);
+	padding: var(--spacing-md) var(--spacing-lg);
+	border-radius: var(--radius-lg);
+	margin-bottom: var(--spacing-xl);
+	border: 1px solid var(--md-sys-color-primary);
+	animation: admin-slideIn 0.3s ease-out;
+}
+
+.admin-success-icon {
+	font-size: 24px;
+	color: var(--md-sys-color-primary);
+}
+
+.admin-success-text {
+	font-family: var(--md-sys-typescale-body-medium-font);
+	font-size: var(--md-sys-typescale-body-medium-size);
+	font-weight: var(--md-sys-typescale-body-medium-weight);
+}
+
+@keyframes admin-slideIn {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Status Cards Section */
+.docreq-status-cards-section {
+	margin-bottom: var(--spacing-xl);
+}
+
+.docreq-status-cards-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: var(--spacing-lg);
+}
+
+.docreq-status-card {
+	background-color: var(--md-sys-color-surface-container);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-lg);
+	padding: var(--spacing-lg);
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-md);
+	transition: all var(--transition-normal);
+	box-shadow: var(--elevation-1);
+	cursor: pointer;
+}
+
+.docreq-status-card:hover {
+	box-shadow: var(--elevation-2);
+	transform: translateY(-2px);
+}
+
+.docreq-status-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	border-radius: var(--radius-md);
+	font-size: 24px;
+}
+
+.docreq-status-content {
+	flex: 1;
+}
+
+.docreq-status-value {
+	font-family: var(--md-sys-typescale-headline-medium-font);
+	font-size: var(--md-sys-typescale-headline-medium-size);
+	font-weight: var(--md-sys-typescale-headline-medium-weight);
+	color: var(--md-sys-color-on-surface);
+	margin: 0 0 var(--spacing-xs) 0;
+}
+
+.docreq-status-label {
+	font-family: var(--md-sys-typescale-body-medium-font);
+	font-size: var(--md-sys-typescale-body-medium-size);
+	color: var(--md-sys-color-on-surface-variant);
+	margin: 0;
+}
+
+/* Status-specific colors */
+.docreq-status-card.docreq-status-onhold .docreq-status-icon {
+	background-color: var(--status-on-hold-bg);
+	color: var(--status-on-hold-text);
+}
+
+.docreq-status-card.docreq-status-verifying .docreq-status-icon {
+	background-color: var(--status-verifying-bg);
+	color: var(--status-verifying-text);
+}
+
+.docreq-status-card.docreq-status-processing .docreq-status-icon {
+	background-color: var(--status-processing-bg);
+	color: var(--status-processing-text);
+}
+
+.docreq-status-card.docreq-status-pickup .docreq-status-icon {
+	background-color: var(--status-for-pickup-bg);
+	color: var(--status-for-pickup-text);
+}
+
+.docreq-status-card.docreq-status-released .docreq-status-icon {
+	background-color: var(--status-released-bg);
+	color: var(--status-released-text);
+}
+
+.docreq-status-card.docreq-status-cancelled .docreq-status-icon {
+	background-color: var(--status-cancelled-bg);
+	color: var(--status-cancelled-text);
+}
+
+/* Status Card Border Designs */
+.docreq-status-card.docreq-status-onhold {
+	border: 1px solid var(--status-on-hold-border);
+}
+
+.docreq-status-card.docreq-status-verifying {
+	border: 1px solid var(--status-verifying-border);
+}
+
+.docreq-status-card.docreq-status-processing {
+	border: 1px solid var(--status-processing-border);
+}
+
+.docreq-status-card.docreq-status-pickup {
+	border: 1px solid var(--status-for-pickup-border);
+}
+
+.docreq-status-card.docreq-status-released {
+	border: 1px solid var(--status-released-border);
+}
+
+.docreq-status-card.docreq-status-cancelled {
+	border: 1px solid var(--status-cancelled-border);
+}
+
+/* Chart Section */
+.docreq-chart-section {
+	margin-bottom: var(--spacing-xl);
+}
+
+/* Filters Section */
+.admin-docreq-filters-section {
+	background-color: var(--md-sys-color-surface-container-low);
+	border-radius: var(--radius-xl);
+	padding: var(--spacing-xl);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	margin-bottom: var(--spacing-xl);
+}
+
+/* Filters Container */
+.admindocreq-filters-container {
+	display: flex;
+	gap: var(--spacing-md);
+	margin-bottom: var(--spacing-lg);
+	flex-wrap: wrap;
+}
+
+.admindocreq-search-container {
+	flex: 2;
+	min-width: 300px;
+}
+
+/* Search Input Styles */
+.admindocreq-search-container {
+	position: relative;
+}
+
+.admindocreq-search-input {
+	width: 100%;
+	padding: var(--spacing-md) var(--spacing-md) var(--spacing-md) 48px;
+	border: 1px solid var(--md-sys-color-outline);
+	border-radius: var(--radius-md);
+	background-color: var(--md-sys-color-surface);
+	color: var(--md-sys-color-on-surface);
+	font-family: var(--md-sys-typescale-body-large-font);
+	font-size: var(--md-sys-typescale-body-large-size);
+	transition: background-color var(--transition-normal);
+	box-sizing: border-box;
+	min-height: 58px;
+}
+
+.admindocreq-search-input:focus {
+	outline: none;
+	border-color: var(--md-sys-color-primary);
+	box-shadow: 0 0 0 1px var(--md-sys-color-primary);
+}
+
+.admindocreq-search-input::placeholder {
+	color: var(--md-sys-color-on-surface-variant);
+	opacity: 0.7;
+}
+
+.admindocreq-search-icon {
+	position: absolute;
+	top: 50%;
+	left: 16px;
+	transform: translateY(-50%);
+	font-size: 24px;
+	color: var(--md-sys-color-on-surface-variant);
+	pointer-events: none;
+}
+
+/* Custom Dropdown Styles */
+.admindocreq-custom-dropdown {
+	position: relative;
+	flex: 1;
+	min-width: 200px;
+}
+
+.admindocreq-dropdown-trigger {
+	width: 100%;
+	padding: var(--spacing-md);
+	border: 1px solid var(--md-sys-color-outline);
+	border-radius: var(--radius-md);
+	background-color: var(--md-sys-color-surface);
+	color: var(--md-sys-color-on-surface);
+	font-family: var(--md-sys-typescale-body-large-font);
+	font-size: var(--md-sys-typescale-body-large-size);
+	text-align: left;
+	cursor: pointer;
+	transition: all var(--transition-normal);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 52px;
+	box-sizing: border-box;
+}
+
+.admindocreq-dropdown-trigger:focus {
+	outline: none;
+	border-color: var(--md-sys-color-primary);
+	box-shadow: 0 0 0 1px var(--md-sys-color-primary);
+}
+
+.admindocreq-dropdown-trigger.selected {
+	border-color: var(--md-sys-color-primary);
+}
+
+.admindocreq-selected-option {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-sm);
+	flex: 1;
+}
+
+.admindocreq-option-icon {
+	font-size: 24px;
+	color: var(--md-sys-color-primary);
+}
+
+.admindocreq-option-content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.admindocreq-option-name {
+	font-weight: var(--md-sys-typescale-body-medium-weight);
+	color: var(--md-sys-color-on-surface);
+}
+
+.admindocreq-option-description {
+	font-size: var(--md-sys-typescale-body-small-size);
+	color: var(--md-sys-color-on-surface-variant);
+}
+
+.admindocreq-placeholder {
+	color: var(--md-sys-color-on-surface-variant);
+}
+
+.admindocreq-dropdown-arrow {
+	font-size: 24px;
+	color: var(--md-sys-color-on-surface-variant);
+	transition: transform var(--transition-normal);
+}
+
+.admindocreq-custom-dropdown.open .admindocreq-dropdown-arrow {
+	transform: rotate(180deg);
+}
+
+.admindocreq-dropdown-menu {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	background-color: var(--md-sys-color-surface-container);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-sm);
+	box-shadow: var(--shadow-lg);
+	z-index: var(--z-dropdown);
+	max-height: 200px;
+	overflow-y: auto;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-10px);
+	transition: all var(--transition-normal);
+}
+
+.admindocreq-custom-dropdown.open .admindocreq-dropdown-menu {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+.admindocreq-dropdown-option {
+	width: 100%;
+	padding: var(--spacing-md);
+	border: none;
+	background: none;
+	text-align: left;
+	cursor: pointer;
+	transition: background-color var(--transition-normal);
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-sm);
+}
+
+.admindocreq-dropdown-option.selected {
+	background-color: var(--md-sys-color-primary-container);
+	color: var(--md-sys-color-on-primary-container);
+}
+
+/* Document Requests Section */
+.admin-docreq-requests-section {
+	background-color: var(--md-sys-color-surface-container-low);
+	border-radius: var(--radius-xl);
+	padding: var(--spacing-xl);
+	border: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.docreq-section-header-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: var(--spacing-lg);
+}
+
+.docreq-section-title-group {
+	flex: 1;
+	margin-bottom: var(--spacing-md);
+}
+
+.docreq-requests-grid {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-md);
+}
+
+/* Request Card Styles - Copied from Account Creation */
+.docreq-request-card {
+	background-color: var(--md-sys-color-surface-container);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-lg);
+	padding: var(--spacing-lg);
+	transition: all var(--transition-normal);
+	cursor: pointer;
+	color: var(--md-sys-color-on-surface);
+}
+
+.docreq-request-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Request Card Header */
+.docreq-request-header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: var(--spacing-md);
+}
+
+.docreq-request-info {
+	display: block;
+}
+
+.docreq-student-info {
+	display: block;
+}
+
+.docreq-student-name {
+	margin: 0;
+	font-size: 1.125rem;
+	font-weight: 600;
+	color: var(--md-sys-color-on-surface);
+}
+
+/* Request Details */
+.docreq-request-details {
+	display: flex;
+	gap: var(--spacing-xl);
+	flex-wrap: wrap;
+	margin-bottom: var(--spacing-md);
+}
+
+.docreq-detail-item {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-xs);
+	font-size: 0.875rem;
+	color: var(--md-sys-color-on-surface-variant);
+	opacity: 0.85;
+}
+
+.docreq-detail-item .material-symbols-outlined {
+	font-size: 0.875rem;
+}
+
+/* Action Buttons Container */
+.docreq-action-buttons {
+	display: flex;
+	gap: var(--spacing-xs);
+	align-items: center;
+}
+
+.docreq-status-badge {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-xs);
+	padding: var(--spacing-xs) var(--spacing-sm);
+	border-radius: var(--radius-full);
+	font-family: var(--md-sys-typescale-label-small-font);
+	font-size: 0.75rem;
+	font-weight: var(--md-sys-typescale-label-small-weight);
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.docreq-status-badge .material-symbols-outlined {
+	font-size: 16px;
+}
+
+/* Action Buttons Container */
+.admindocreq-action-buttons {
+	display: flex;
+	gap: var(--spacing-xs);
+	align-items: center;
+}
+
+.admindocreq-urgent-badge .material-symbols-outlined {
+	font-size: 16px;
+}
+
+.admindocreq-status-badge {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-xs);
+	padding: var(--spacing-xs) var(--spacing-sm);
+	border-radius: var(--radius-full);
+	font-size: 0.875rem;
+	font-weight: 500;
+	text-transform: capitalize;
+}
+
+.admindocreq-status-badge .material-symbols-outlined {
+	font-size: 18px;
+}
+
+/* Status-based card borders and backgrounds */
+.status-pending-border {
+	border: 1px solid var(--status-pending-border);
+}
+
+.status-on_hold-border {
+	border: 1px solid var(--status-on-hold-border);
+}
+
+.status-verifying-border {
+	border: 1px solid var(--status-verifying-border);
+}
+
+.status-processing-border {
+	border: 1px solid var(--status-processing-border);
+}
+
+.status-for_pickup-border {
+	border: 1px solid var(--status-for-pickup-border);
+}
+
+.status-released-border {
+	border: 1px solid var(--status-released-border);
+}
+
+.status-completed-border {
+	border: 1px solid var(--status-completed-border);
+}
+
+.status-rejected-border {
+	border: 1px solid var(--status-rejected-border);
+}
+
+.status-cancelled-border {
+	border: 1px solid var(--status-cancelled-border);
+}
+
+.admindocreq-status-pending {
+	background-color: var(--status-pending-bg);
+	color: var(--status-pending-text);
+	border: 1px solid var(--status-pending-border);
+}
+
+.admindocreq-status-on_hold {
+	background-color: var(--status-on-hold-bg);
+	color: var(--status-on-hold-text);
+	border: 1px solid var(--status-on-hold-border);
+}
+
+.admindocreq-status-verifying {
+	background-color: var(--status-verifying-bg);
+	color: var(--status-verifying-text);
+	border: 1px solid var(--status-verifying-border);
+}
+
+.admindocreq-status-processing {
+	background-color: var(--status-processing-bg);
+	color: var(--status-processing-text);
+	border: 1px solid var(--status-processing-border);
+}
+
+.admindocreq-status-for_pickup {
+	background-color: var(--status-for-pickup-bg);
+	color: var(--status-for-pickup-text);
+	border: 1px solid var(--status-for-pickup-border);
+}
+
+.admindocreq-status-released {
+	background-color: var(--status-released-bg);
+	color: var(--status-released-text);
+	border: 1px solid var(--status-released-border);
+}
+
+.admindocreq-status-completed {
+	background-color: var(--status-completed-bg);
+	color: var(--status-completed-text);
+	border: 1px solid var(--status-completed-border);
+}
+
+.admindocreq-status-rejected {
+	background-color: var(--status-rejected-bg);
+	color: var(--status-rejected-text);
+	border: 1px solid var(--status-rejected-border);
+}
+
+.admindocreq-status-cancelled {
+	background-color: var(--status-cancelled-bg);
+	color: var(--status-cancelled-text);
+	border: 1px solid var(--status-cancelled-border);
+}
+
+/* Chat Indicator Button */
+.chat-indicator-btn {
+	position: relative;
+	background: transparent;
+	border: 1px solid var(--md-sys-color-primary);
+	color: var(--md-sys-color-on-primary-container);
+	border-radius: var(--radius-full);
+	padding: var(--spacing-sm) var(--spacing-sm);
+	cursor: pointer;
+	transition: all var(--transition-fast);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.docreq-request-card.status-on_hold-border .chat-indicator-btn {
+	border-color: var(--status-on-hold-border);
+	color: var(--status-on-hold-text);
+}
+
+.docreq-request-card.status-verifying-border .chat-indicator-btn {
+	border-color: var(--status-verifying-border);
+	color: var(--status-verifying-text);
+}
+
+.docreq-request-card.status-processing-border .chat-indicator-btn {
+	border-color: var(--status-processing-border);
+	color: var(--status-processing-text);
+}
+
+.docreq-request-card.status-for_pickup-border .chat-indicator-btn {
+	border-color: var(--status-for-pickup-border);
+	color: var(--status-for-pickup-text);
+}
+
+.docreq-request-card.status-released-border .chat-indicator-btn {
+	border-color: var(--status-released-border);
+	color: var(--status-released-text);
+}
+
+.docreq-request-card.status-rejected-border .chat-indicator-btn {
+	border-color: var(--status-rejected-border);
+	color: var(--status-rejected-text);
+}
+
+.docreq-request-card.status-cancelled-border .chat-indicator-btn {
+	border-color: var(--status-cancelled-border);
+	color: var(--status-cancelled-text);
+}
+
+.chat-indicator-btn:hover {
+	background: transparent;
+	transform: scale(1.05);
+}
+
+.chat-indicator-btn:active {
+	transform: scale(0.95);
+}
+
+.chat-indicator-btn .material-symbols-outlined {
+	font-size: 18px;
+}
+
+/* Chat Badge */
+.chat-badge {
+	position: absolute;
+	top: -5px;
+	right: -5px;
+	font-size: 0.75rem;
+	font-weight: 700;
+	line-height: 1;
+	padding: 2px 4px;
+	border-radius: 8px;
+	background: var(--md-sys-color-primary);
+	color: var(--md-sys-color-on-primary);
+	min-width: 16px;
+	text-align: center;
+}
+
+.docreq-request-card.status-on_hold-border .chat-badge {
+	background: var(--status-on-hold-border);
+	color: white;
+}
+
+.docreq-request-card.status-verifying-border .chat-badge {
+	background: var(--status-verifying-border);
+	color: white;
+}
+
+.docreq-request-card.status-processing-border .chat-badge {
+	background: var(--status-processing-border);
+	color: white;
+}
+
+.docreq-request-card.status-for_pickup-border .chat-badge {
+	background: var(--status-for-pickup-border);
+	color: white;
+}
+
+.docreq-request-card.status-released-border .chat-badge {
+	background: var(--status-released-border);
+	color: white;
+}
+
+.docreq-request-card.status-rejected-border .chat-badge {
+	background: var(--status-rejected-border);
+	color: white;
+}
+
+.docreq-request-card.status-cancelled-border .chat-badge {
+	background: var(--status-cancelled-border);
+	color: white;
+}
+
+/* Request Details */
+.admindocreq-request-content {
+	margin-bottom: var(--spacing-md);
+}
+
+.admindocreq-document-info {
+	display: flex;
+	gap: var(--spacing-xl);
+	flex-wrap: wrap;
+	margin-bottom: var(--spacing-md);
+}
+
+.admindocreq-document-type,
+.admindocreq-request-date,
+.admindocreq-request-status,
+.admindocreq-request-priority {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-xs);
+	font-size: 0.875rem;
+	color: var(--md-sys-color-on-surface-variant);
+	opacity: 0.85;
+}
+
+.admindocreq-document-type .material-symbols-outlined,
+.admindocreq-request-date .material-symbols-outlined,
+.admindocreq-request-status .material-symbols-outlined,
+.admindocreq-request-priority .material-symbols-outlined {
+	font-size: 0.875rem;
+}
+
+.admindocreq-purpose {
+	padding: var(--spacing-sm);
+	background-color: var(--md-sys-color-surface-variant);
+	border-radius: var(--radius-sm);
+	font-size: 0.875rem;
+}
+
+.admindocreq-purpose p {
+	margin: 0;
+	color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Request Actions */
+.admindocreq-request-actions {
+	display: flex;
+	gap: var(--spacing-sm);
+	justify-content: flex-end;
+	padding-top: var(--spacing-md);
+}
+
+.admindocreq-approve-button {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-xs);
+	padding: var(--spacing-sm) var(--spacing-md);
+	background-color: var(--grade-excellent);
+	color: white;
+	border: none;
+	font-size: 0.875rem;
+	border-radius: var(--radius-md);
+	font-weight: 500;
+	cursor: pointer;
+	transition: all var(--transition-normal);
+	padding: var(--spacing-sm) var(--spacing-md);
+	border-radius: var(--radius-md);
+}
+
+.admindocreq-reject-button {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-xs);
+	padding: var(--spacing-sm) var(--spacing-md);
+	background-color: var(--md-sys-color-error);
+	color: var(--md-sys-color-on-error);
+	border: none;
+	border-radius: var(--radius-md);
+	font-size: 0.875rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all var(--transition-normal);
+}
+
+.admindocreq-approve-button .material-symbols-outlined,
+.admindocreq-reject-button .material-symbols-outlined {
+	font-size: 18px;
+}
+
+/* Request Footer */
+.admindocreq-request-footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: var(--spacing-md);
+	border-radius: var(--radius-md);
+	font-size: 0.875rem;
+	position: relative;
+	overflow: hidden;
+}
+
+.admindocreq-footer-info {
+	flex: 1;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	gap: var(--spacing-xs);
+}
+
+.admindocreq-footer-info::before {
+	content: '';
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: currentColor;
+	opacity: 0.6;
+}
+
+.admindocreq-complete-button {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-xs);
+	padding: var(--spacing-sm) var(--spacing-md);
+	background-color: var(--md-sys-color-surface-container-highest);
+	color: var(--md-sys-color-on-surface);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-md);
+	font-size: 0.875rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all var(--transition-normal);
+}
+
+.admindocreq-complete-button .material-symbols-outlined {
+	font-size: 18px;
+}
+
+.admindocreq-action-btn.remove-btn {
+	background-color: var(--md-sys-color-surface);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-md);
+	padding: var(--spacing-sm);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	flex-shrink: 0;
+	color: var(--md-sys-color-error);
+	cursor: pointer;
+	transition: all var(--transition-normal);
+}
+
+.admindocreq-action-btn.remove-btn:hover {
+	background-color: var(--md-sys-color-error-container);
+	border-color: var(--md-sys-color-error);
+	color: var(--md-sys-color-on-error-container);
+	box-shadow: var(--elevation-1);
+}
+
+.admindocreq-action-btn.remove-btn .material-symbols-outlined {
+	font-size: 18px;
+	transition: inherit;
+}
+
+.admindocreq-action-btn.remove-btn:active {
+	background-color: var(--md-sys-color-error-container);
+	box-shadow: none;
+	transform: scale(0.95);
+}
+
+/* Update footer layouts to accommodate remove buttons */
+.completed-footer,
+.cancelled-footer {
+	justify-content: space-between;
+	align-items: center;
+}
+
+/* No Results Message */
+.admindocreq-no-results {
+	text-align: center;
+	padding: var(--spacing-xl);
+	color: var(--md-sys-color-on-surface-variant);
+	border: 2px dashed var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-lg);
+	margin-top: var(--spacing-lg);
+}
+
+.admindocreq-no-results-icon {
+	font-size: 48px;
+	margin-bottom: var(--spacing-md);
+	display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+	.docreq-status-cards-grid {
+		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+		gap: var(--spacing-md);
+	}
+
+	.admindocreq-filters-container {
+		flex-direction: column;
+	}
+
+	.admindocreq-search-container {
+		flex: none;
+		min-width: auto;
+	}
+
+	.admindocreq-custom-dropdown {
+		flex: none;
+		min-width: auto;
+	}
+}
+
+@media (max-width: 768px) {
+	.docreq-status-cards-grid {
+		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+		gap: var(--spacing-sm);
+	}
+
+	.docreq-status-card {
+		flex-direction: column;
+		text-align: center;
+		gap: var(--spacing-sm);
+		padding: var(--spacing-md);
+	}
+
+	.admin-document-requests-container {
+		padding: var(--spacing-lg);
+	}
+
+	.admin-docreq-filters-section,
+	.admin-docreq-requests-section {
+		padding: var(--spacing-lg);
+	}
+
+	.admindocreq-request-header {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--spacing-sm);
+	}
+
+	.admindocreq-request-info {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--spacing-sm);
+	}
+
+	.admindocreq-document-info {
+		flex-direction: column;
+		gap: var(--spacing-sm);
+	}
+
+	.admindocreq-request-actions {
+		justify-content: stretch;
+	}
+
+	.admindocreq-approve-button,
+	.admindocreq-reject-button {
+		flex: 1;
+		justify-content: center;
+	}
+}
+
+@media (max-width: 480px) {
+	.docreq-status-cards-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.docreq-status-value {
+		font-size: var(--md-sys-typescale-title-large-size);
+	}
+
+	.admin-page-title {
+		font-size: var(--md-sys-typescale-headline-medium-size);
+	}
+
+	.admin-section-title {
+		font-size: var(--md-sys-typescale-title-medium-size);
+	}
+
+	.admindocreq-request-footer {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--spacing-sm);
+	}
+}

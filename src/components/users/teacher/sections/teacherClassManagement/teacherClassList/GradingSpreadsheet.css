@@ -1,0 +1,348 @@
+
+.save-section {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.save-button-container{
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.save-grades-button, .final-grades-button, .refresh-grades-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 140px;
+  justify-content: center;
+}
+
+.save-grades-button:hover:not(:disabled), .final-grades-button:hover:not(:disabled) {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+.save-grades-button:disabled, .final-grades-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+
+.save-message {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  font-size: var(--md-sys-typescale-body-small-size);
+  font-weight: var(--md-sys-typescale-label-medium-weight);
+}
+
+.save-message.success {
+  background-color: var(--md-sys-color-tertiary-container);
+  color: var(--md-sys-color-on-tertiary-container);
+}
+
+.save-message.error {
+  background-color: var(--md-sys-color-error-container);
+  color: var(--md-sys-color-on-error-container);
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.grading-spreadsheet {
+  background-color: var(--md-sys-color-surface);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.spreadsheet-container {
+  overflow: auto;
+  max-height: 70vh;
+}
+
+.spreadsheet-table {
+  width: 100%;
+  border-spacing: 1;
+  font-size: var(--md-sys-typescale-body-small-size);
+  background-color: var(--md-sys-color-surface);
+  overflow: hidden;
+}
+
+.spreadsheet-header {
+  background-color: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface);
+  font-weight: var(--md-sys-typescale-label-large-weight);
+  padding: var(--spacing-md);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  text-align: center;
+  min-width: 80px;
+  position: relative;
+  border-radius: var(--radius-md);
+}
+
+.header-text {
+  display: block;
+}
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.spreadsheet-header.clickable:hover .header-overlay {
+  opacity: 1;
+}
+
+.spreadsheet-header.spreadsheet-student-info {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  position: sticky;
+  left: 0;
+  z-index: 11;
+  min-width: 120px;
+}
+
+.spreadsheet-header.calculated {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  font-weight: 600;
+}
+
+.spreadsheet-header.clickable {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.header-icon {
+  font-size: 18px;
+  color: white;
+}
+
+.spreadsheet-cell.calculated {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  font-weight: 600;
+}
+
+.spreadsheet-row {
+  transition: background-color var(--transition-normal);
+}
+
+.spreadsheet-row:hover {
+  background-color: var(--md-sys-color-surface-container-hover);
+}
+
+
+
+.spreadsheet-cell {
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--radius-md);
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  min-width: 80px;
+  height: 40px;
+}
+
+.spreadsheet-cell.spreadsheet-student-info {
+  background-color: var(--md-sys-color-surface-container-low);
+  position: sticky;
+  left: 0;
+  z-index: 5;
+  text-align: left;
+  min-width: 120px;
+}
+
+.spreadsheet-cell.calculated {
+  background-color: var(--outline-variant);
+  color: var(--md-sys-color-on-secondary-container);
+  font-weight: 600;
+}
+
+.spreadsheet-cell.final-grade {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-tertiary-container);
+  font-weight: 700;
+}
+
+.spreadsheet-cell.editable {
+  cursor: pointer;
+}
+
+
+.spreadsheet-cell.selected {
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: -2px;
+  z-index: 6;
+}
+
+.spreadsheet-cell.editing {
+  background-color: var(--md-sys-color-surface);
+}
+
+.cell-content {
+  display: block;
+  width: 100%;
+  padding: var(--spacing-sm);
+  box-sizing: border-box;
+}
+
+.cell-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  text-align: center;
+  font-size: inherit;
+  color: var(--md-sys-color-on-surface);
+  padding: var(--spacing-sm);
+  box-sizing: border-box;
+  min-width: 80px;
+  max-width: 80px;
+}
+
+.spreadsheet-cell.spreadsheet-student-info .cell-input {
+  text-align: left;
+}
+
+/* Scrollbar Styling */
+.spreadsheet-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.spreadsheet-container::-webkit-scrollbar-track {
+  background: var(--md-sys-color-surface-variant);
+}
+
+.spreadsheet-container::-webkit-scrollbar-thumb {
+  background: var(--md-sys-color-outline-variant);
+  border-radius: var(--radius-sm);
+}
+
+.spreadsheet-container::-webkit-scrollbar-thumb:hover {
+  background: var(--md-sys-color-outline);
+}
+
+/* Invalid cell styling */
+.spreadsheet-cell.invalid {
+  background-color: var(--md-sys-color-error-container) !important;
+  color: var(--md-sys-color-on-error-container) !important;
+  animation: errorPulse 0.5s ease-in-out;
+}
+
+.spreadsheet-cell.invalid .cell-content {
+  color: var(--md-sys-color-on-error-container);
+  font-weight: 600;
+}
+
+/* Disabled cell styling */
+.spreadsheet-cell.disabled {
+  background-color: var(--md-sys-color-surface-container-low) !important;
+  color: var(--md-sys-color-on-surface-variant) !important;
+  cursor: not-allowed !important;
+  opacity: 0.6;
+  position: relative;
+  pointer-events: none; /* Prevent all mouse interactions */
+}
+
+.spreadsheet-cell.disabled:hover {
+  background-color: var(--md-sys-color-surface-container-low) !important;
+}
+
+.spreadsheet-cell.disabled::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 2px,
+    rgba(var(--md-sys-color-outline-variant-rgb), 0.1) 2px,
+    rgba(var(--md-sys-color-outline-variant-rgb), 0.1) 4px
+  );
+  pointer-events: none;
+}
+
+/* Verified/Locked cell styling */
+.spreadsheet-row.verified .spreadsheet-cell.editable {
+  background-color: var(--md-sys-color-surface-container-low) !important;
+  color: var(--md-sys-color-on-surface-variant) !important;
+  cursor: not-allowed !important;
+  opacity: 0.7;
+  position: relative;
+}
+
+.spreadsheet-row.verified .spreadsheet-cell.editable:hover {
+  background-color: var(--md-sys-color-surface-container-low) !important;
+}
+
+/* Specific styling for verified cell content when in editing mode */
+.verified-cell {
+  background-color: var(--md-sys-color-surface-container-low) !important;
+  color: var(--md-sys-color-on-surface-variant) !important;
+  cursor: not-allowed !important;
+  opacity: 0.8;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 2px solid var(--md-sys-color-outline-variant);
+}
+
+@keyframes errorPulse {
+  0% {
+    background-color: var(--md-sys-color-error);
+    transform: scale(1);
+  }
+  50% {
+    background-color: var(--md-sys-color-error);
+    transform: scale(1.02);
+  }
+  100% {
+    background-color: var(--md-sys-color-error-container);
+    transform: scale(1);
+  }
+}

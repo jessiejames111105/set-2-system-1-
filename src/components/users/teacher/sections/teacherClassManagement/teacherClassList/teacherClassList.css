@@ -1,0 +1,735 @@
+/* Teacher Class List Grading Sheet Styles */
+
+.class-management-container {
+  margin: 0 auto;
+  color: var(--md-sys-color-on-surface);
+  padding: var(--spacing-lg);
+  height: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for class management container */
+.class-management-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.class-management-container::-webkit-scrollbar-track {
+  background: var(--md-sys-color-surface-variant);
+  border-radius: var(--radius-sm);
+}
+
+.class-management-container::-webkit-scrollbar-thumb {
+  background: var(--md-sys-color-outline-variant);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-normal);
+}
+
+.class-management-container::-webkit-scrollbar-thumb:hover {
+  background: var(--md-sys-color-outline);
+}
+
+/* Header Section */
+.classlist-page-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing-xl);
+  gap: var(--spacing-md);
+}
+
+.header-content {
+  flex: 1;
+}
+
+/* Subject Tab Navigation Styles */
+.subject-tab-navigation {
+  display: flex;
+  gap: var(--spacing-xs);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  padding-bottom: var(--spacing-sm);
+}
+
+.subject-tab-button {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: var(--md-sys-typescale-body-medium-size);
+  font-weight: var(--md-sys-typescale-body-medium-weight);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.subject-tab-button:hover {
+  background: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface);
+}
+
+.subject-tab-button.active {
+  color: var(--md-sys-color-primary);
+  background: var(--md-sys-color-primary-container);
+}
+
+.subject-tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -9px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--md-sys-color-primary);
+  border-radius: var(--radius-xs);
+}
+
+.subject-tab-button .material-symbols-outlined {
+  font-size: 20px;
+}
+
+/* Header Navigation */
+.header-navigation {
+  margin-bottom: var(--spacing-md);
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--md-sys-typescale-body-medium-size);
+  font-weight: var(--md-sys-typescale-body-medium-weight);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.back-button:hover {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--elevation-1);
+}
+
+.back-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.back-button .material-symbols-outlined {
+  font-size: 20px;
+}
+
+.classlist-page-title {
+  font-size: var(--md-sys-typescale-headline-large-size);
+  font-weight: var(--md-sys-typescale-headline-large-weight);
+  margin: 0 0 var(--spacing-sm) 0;
+  color: var(--md-sys-color-on-surface);
+}
+
+.classlist-page-subtitle {
+  font-size: var(--md-sys-typescale-body-large-size);
+  color: var(--md-sys-color-on-surface-variant);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.classlist-stats {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.student-list-stat-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background-color: var(--md-sys-color-surface-container);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  font-size: var(--md-sys-typescale-body-medium-size);
+  color: var(--md-sys-color-on-surface);
+}
+
+.stat-item .material-symbols-outlined {
+  font-size: 20px;
+  color: var(--md-sys-color-primary);
+}
+
+/* Grading Configuration Section */
+.grading-config-section {
+  margin-bottom: var(--spacing-md);
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  border: 1px solid var(--md-sys-color-outline-variant);
+}
+
+/* Config Header with Quarter Selector */
+.config-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.config-title {
+  font-size: var(--md-sys-typescale-title-large-size);
+  font-weight: var(--md-sys-typescale-title-large-weight);
+  margin: 0;
+  color: var(--md-sys-color-on-surface);
+}
+
+/* Quarter Selector */
+.classlist-quarter-selector-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  min-width: 200px;
+}
+
+/* Custom Dropdown for Quarter Selection */
+.classlist-quarter-dropdown {
+  position: relative;
+  width: 100%;
+  min-width: 200px;
+}
+
+.classlist-quarter-select-button {
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  border-radius: var(--radius-md);
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-surface);
+  font-family: var(--md-sys-typescale-body-large-font);
+  font-size: var(--md-sys-typescale-body-large-size);
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.classlist-quarter-select-button:hover {
+  border-color: var(--md-sys-color-outline);
+}
+
+.classlist-quarter-selected-option {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex: 1;
+}
+
+.classlist-quarter-option-icon {
+  font-size: 24px;
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.classlist-quarter-option-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.classlist-quarter-option-name {
+  font-weight: var(--md-sys-typescale-body-medium-weight);
+  color: var(--md-sys-color-on-surface);
+  font-size: 14px;
+}
+
+.classlist-quarter-placeholder {
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.classlist-quarter-dropdown-arrow {
+  font-size: 24px;
+  color: var(--md-sys-color-on-surface-variant);
+  transition: transform var(--transition-normal);
+}
+
+.classlist-quarter-dropdown.open .classlist-quarter-dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.classlist-quarter-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all var(--transition-normal);
+  margin-top: var(--spacing-xs);
+}
+
+.classlist-quarter-dropdown.open .classlist-quarter-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.classlist-quarter-dropdown-option {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--transition-normal);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.classlist-quarter-dropdown-option:hover {
+  background-color: var(--md-sys-color-surface-variant);
+}
+
+.classlist-quarter-dropdown-option.selected {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.classlist-quarter-dropdown-option.selected .classlist-quarter-option-icon {
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.config-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.config-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.config-label {
+  font-size: var(--md-sys-typescale-label-large-size);
+  font-weight: var(--md-sys-typescale-label-large-weight);
+  color: var(--md-sys-color-on-surface);
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Column Control Styles */
+.classlist-column-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--md-sys-color-surface);
+  border: 2px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--radius-md);
+  gap: var(--spacing-md);
+}
+
+.classlist-column-count {
+  flex: 1;
+}
+
+.classlist-column-text {
+  font-size: var(--md-sys-typescale-body-medium-size);
+  color: var(--md-sys-color-on-surface);
+  font-weight: var(--md-sys-typescale-body-medium-weight);
+}
+
+.classlist-action-buttons {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.classlist-add-column-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  font-size: 18px;
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.classlist-add-column-button:hover:not(:disabled) {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--elevation-1);
+}
+
+.classlist-add-column-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.classlist-add-column-button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Submit Section */
+.classlist-submit-section {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-lg) 0;
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.classlist-submit-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-md);
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: var(--md-sys-typescale-body-medium-weight);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  box-shadow: var(--elevation-1);
+  border: 1px solid var(--md-sys-color-primary);
+}
+
+.classlist-submit-button:hover {
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border: 1px solid var(--md-sys-color-primary);
+}
+
+.classlist-submit-button:active {
+  transform: translateY(0);
+  box-shadow: var(--elevation-1);
+}
+
+.classlist-submit-button .material-symbols-outlined {
+  font-size: 20px;
+}
+
+/* Grading Table Section */
+.grading-table-section {
+  background-color: var(--md-sys-color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  overflow: hidden;
+}
+
+.table-container {
+  overflow-x: auto;
+  overflow-y: visible;
+}
+
+.table-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: var(--md-sys-color-surface-variant);
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: var(--md-sys-color-outline-variant);
+  border-radius: var(--radius-sm);
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: var(--md-sys-color-outline);
+}
+
+/* Excel-like Table Styles */
+.grading-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--md-sys-typescale-body-small-size);
+  background-color: var(--md-sys-color-surface);
+  min-width: 1200px; /* Ensure horizontal scroll when needed */
+}
+
+.grading-table th,
+.grading-table td {
+  border: 1px solid var(--md-sys-color-outline-variant);
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+}
+
+/* Header Styles */
+.grading-table thead th {
+  background-color: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface);
+  font-weight: var(--md-sys-typescale-label-large-weight);
+  padding: var(--spacing-md);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.student-id-header {
+  min-width: 100px;
+  background-color: var(--md-sys-color-primary-container) !important;
+  color: var(--md-sys-color-on-primary-container) !important;
+  left: 0;
+  z-index: 11 !important;
+}
+
+.student-name-header {
+  min-width: 150px;
+  background-color: var(--md-sys-color-primary-container) !important;
+  color: var(--md-sys-color-on-primary-container) !important;
+  left: 100px;
+  z-index: 11 !important;
+}
+
+.category-header {
+  background-color: var(--md-sys-color-secondary-container) !important;
+  color: var(--md-sys-color-on-secondary-container) !important;
+  font-size: var(--md-sys-typescale-label-medium-size);
+  font-weight: 600;
+}
+
+.score-header {
+  min-width: 80px;
+  font-size: var(--md-sys-typescale-label-small-size);
+}
+
+.average-header {
+  min-width: 80px;
+  background-color: var(--md-sys-color-primary-container) !important;
+    color: var(--md-sys-color-on-primary-container) !important;
+  font-weight: 600;
+}
+
+.final-grade-header {
+  min-width: 100px;
+  background-color: var(--md-sys-color-primary-container) !important;
+  color: var(--md-sys-color-on-primary-container) !important;
+  font-weight: 600;
+}
+
+/* Body Styles */
+.student-row {
+  transition: background-color var(--transition-normal);
+}
+
+.student-row:hover {
+  background-color: var(--md-sys-color-surface-container-hover);
+}
+
+.student-row:nth-child(even) {
+  background-color: var(--md-sys-color-surface-variant);
+}
+
+.student-row:nth-child(even):hover {
+  background-color: var(--md-sys-color-surface-container-hover);
+}
+
+/* Student ID Cell */
+.student-id-cell {
+  text-align: center !important;
+  padding: var(--spacing-md);
+  background-color: var(--md-sys-color-surface-container-low);
+  position: sticky;
+  left: 0;
+  z-index: 5;
+  min-width: 100px;
+}
+
+.student-id-text {
+  font-size: var(--md-sys-typescale-label-medium-size);
+  color: var(--md-sys-color-on-surface-variant);
+  font-weight: 500;
+}
+
+/* Student Name Cell */
+.student-name-cell {
+  text-align: left !important;
+  padding: var(--spacing-md);
+  background-color: var(--md-sys-color-surface-container-low);
+  position: sticky;
+  left: 100px;
+  z-index: 5;
+  min-width: 150px;
+}
+
+.student-name-text {
+  font-size: var(--md-sys-typescale-body-medium-size);
+  color: var(--md-sys-color-on-surface);
+  font-weight: 500;
+}
+
+/* Score Input Cells */
+.score-cell {
+  padding: var(--spacing-xs);
+  background-color: var(--md-sys-color-surface);
+}
+
+.grade-input {
+  width: 100%;
+  max-width: 60px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background-color: transparent;
+  text-align: center;
+  font-size: var(--md-sys-typescale-body-small-size);
+  color: var(--md-sys-color-on-surface);
+  transition: all var(--transition-normal);
+}
+
+.grade-input:focus {
+  outline: none;
+  border-color: var(--md-sys-color-primary);
+  background-color: var(--md-sys-color-surface);
+  box-shadow: 0 0 0 2px var(--md-sys-color-primary-container);
+}
+
+.grade-input:hover {
+  background-color: var(--md-sys-color-surface-container-hover);
+}
+
+/* Average Cells */
+.average-cell {
+  padding: var(--spacing-sm);
+  background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+  font-weight: 600;
+  font-size: var(--md-sys-typescale-body-medium-size);
+}
+
+/* Final Grade Cell */
+.final-grade-cell {
+  padding: var(--spacing-sm);
+  background-color: var(--md-sys-color-primary-container);
+}
+
+.final-grade {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: var(--md-sys-typescale-body-medium-size);
+  min-width: 50px;
+}
+
+/* Grade Status Colors */
+.final-grade.excellent {
+  background-color: var(--grade-excellent);
+  color: white;
+}
+
+.final-grade.good {
+  background-color: var(--grade-good);
+  color: white;
+}
+
+.final-grade.satisfactory {
+  background-color: var(--grade-satisfactory);
+  color: white;
+}
+
+.final-grade.needs-improvement {
+  background-color: var(--grade-needs-improvement);
+  color: white;
+}
+
+.final-grade.no-grade {
+  background-color: var(--grade-no-grade);
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .class-management-container {
+    padding: var(--spacing-md);
+  }
+  
+  .classlist-page-header {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .config-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .grading-table {
+    font-size: var(--md-sys-typescale-body-small-size);
+  }
+  
+  .student-info-header,
+  .student-info {
+    min-width: 150px;
+  }
+  
+  .score-header,
+  .average-header {
+    min-width: 60px;
+  }
+  
+  .grade-input {
+    max-width: 50px;
+    font-size: var(--md-sys-typescale-label-small-size);
+  }
+}
+
+@media (max-width: 480px) {
+  .grading-config-section {
+    padding: var(--spacing-lg);
+  }
+  
+  .config-title {
+    font-size: var(--md-sys-typescale-title-medium-size);
+  }
+
+  .config-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .classlist-quarter-selector-container {
+    width: 100%;
+  }
+  
+  .classlist-page-title {
+    font-size: var(--md-sys-typescale-headline-medium-size);
+  }
+  
+  .stat-item {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--md-sys-typescale-body-small-size);
+  }
+}

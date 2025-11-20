@@ -1,0 +1,19 @@
+/* High School Student Information System - Design System */
+/* Modular CSS Architecture */
+
+/* Import all design system modules in the correct order */
+
+/* 1. Variables - CSS Custom Properties (colors, typography, spacing, etc.) */
+@import './design-system-styles/variables.css';
+
+/* 2. Themes - Light and Dark mode configurations */
+@import './design-system-styles/themes.css';
+
+/* 3. Base - Base styles and resets */
+@import './design-system-styles/base.css';
+
+/* 4. Utilities - Utility classes and helper styles */
+@import './design-system-styles/utilities.css';
+
+/* 5. Layout - Layout-specific styles and containers */
+@import './design-system-styles/layout.css';

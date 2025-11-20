@@ -1,0 +1,2118 @@
+/* Department Management Styles */
+.dept-mgmt-container {
+	color: var(--md-sys-color-on-surface);
+	box-sizing: border-box;
+	overflow-y: auto;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+.dept-mgmt-container::-webkit-scrollbar {
+	width: 8px;
+}
+
+.dept-mgmt-container::-webkit-scrollbar-track {
+	background: var(--md-sys-color-surface-variant);
+	border-radius: var(--radius-sm);
+}
+
+.dept-mgmt-container::-webkit-scrollbar-thumb {
+	background: var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-sm);
+	transition: background-color var(--transition-normal);
+}
+
+.dept-mgmt-container::-webkit-scrollbar-thumb:hover {
+	background: var(--md-sys-color-outline);
+}
+
+/* Header */
+.dept-mgmt-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: var(--spacing-xl);
+	gap: var(--spacing-md);
+}
+
+.dept-mgmt-header-content {
+	flex: 1;
+}
+
+.dept-mgmt-page-title {
+	font-family: var(--md-sys-typescale-headline-large-font);
+	font-size: var(--md-sys-typescale-headline-large-size);
+	font-weight: var(--md-sys-typescale-headline-large-weight);
+	color: var(--md-sys-color-on-surface);
+	margin: 0 0 var(--spacing-xs) 0;
+}
+
+.dept-mgmt-page-subtitle {
+	font-family: var(--md-sys-typescale-body-large-font);
+	font-size: var(--md-sys-typescale-body-large-size);
+	color: var(--md-sys-color-on-surface-variant);
+	margin: 0;
+}
+
+/* Sections */
+.dept-mgmt-create-section,
+.dept-mgmt-departments-section {
+	background-color: var(--md-sys-color-surface-container-low);
+	border-radius: var(--radius-xl);
+	padding: var(--spacing-xl);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	margin-bottom: var(--spacing-xl);
+}
+
+.dept-mgmt-section-title {
+	font-family: var(--md-sys-typescale-title-large-font);
+	font-size: var(--md-sys-typescale-title-large-size);
+	font-weight: var(--md-sys-typescale-title-large-weight);
+	color: var(--md-sys-color-on-surface);
+	margin: 0 0 var(--spacing-sm) 0;
+}
+
+.dept-mgmt-section-subtitle {
+	font-family: var(--md-sys-typescale-body-medium-font);
+	font-size: var(--md-sys-typescale-body-medium-size);
+	color: var(--md-sys-color-on-surface-variant);
+	margin: 0 0 var(--spacing-md) 0;
+}
+
+.dept-mgmt-section-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: var(--spacing-lg);
+}
+
+.section-header-content {
+	display: flex;
+	gap: var(--spacing-md);
+	width: 100%;
+	margin-bottom: var(--spacing-md);
+}
+
+.section-title-group {
+	flex: 1;
+}
+
+/* Search Container Styles */
+.dept-mgmt-search-container {
+	position: relative;
+	flex: 1;
+	min-width: 400px;
+}
+
+.dept-mgmt-search-input-wrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+	background-color: var(--md-sys-color-surface);
+	border: 1px solid var(--md-sys-color-outline);
+	border-radius: var(--radius-md);
+	transition: all var(--transition-normal);
+	min-height: 58px;
+}
+
+.dept-mgmt-search-input-wrapper:focus-within {
+	border-color: var(--md-sys-color-primary);
+	box-shadow: 0 0 0 2px rgba(var(--md-sys-color-primary-rgb), 0.2);
+}
+
+.dept-mgmt-search-icon {
+	position: absolute;
+	left: calc(var(--spacing-sm) + 5px);
+	color: var(--md-sys-color-on-surface-variant);
+	font-size: 20px;
+	pointer-events: none;
+	z-index: 1;
+}
+
+.dept-mgmt-search-input {
+	width: 100%;
+	padding: var(--spacing-sm) var(--spacing-md);
+	padding-left: 40px;
+	padding-right: 40px;
+	border: none;
+	border-radius: var(--radius-md);
+	background-color: transparent;
+	color: var(--md-sys-color-on-surface);
+	font-family: var(--md-sys-typescale-body-large-font);
+	font-size: var(--md-sys-typescale-body-large-size);
+	transition: all var(--transition-normal);
+	box-sizing: border-box;
+}
+
+.dept-mgmt-search-input:focus {
+	outline: none;
+}
+
+.dept-mgmt-search-input::placeholder {
+	color: var(--md-sys-color-on-surface-variant);
+}
+
+.dept-mgmt-clear-search-button {
+	position: absolute;
+	right: var(--spacing-xs);
+	background: none;
+	border: none;
+	color: var(--md-sys-color-on-surface-variant);
+	cursor: pointer;
+	padding: var(--spacing-xs);
+	border-radius: var(--radius-sm);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all var(--transition-normal);
+	font-size: 18px;
+	z-index: 2;
+}
+
+.dept-mgmt-clear-search-button:hover {
+	background-color: var(--md-sys-color-surface-variant);
+	color: var(--md-sys-color-on-surface);
+}
+
+/* Form Styles */
+.dept-mgmt-create-form {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-lg);
+}
+
+.dept-mgmt-form-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--spacing-lg);
+}
+
+.dept-mgmt-form-group {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-sm);
+}
+
+.dept-mgmt-form-label {
+	font-family: var(--md-sys-typescale-body-medium-font);
+	font-size: var(--md-sys-typescale-body-medium-size);
+	font-weight: var(--md-sys-typescale-body-medium-weight);
+	color: var(--md-sys-color-on-surface);
+	margin-bottom: var(--spacing-xs);
+}
+
+.dept-mgmt-form-input,
+.dept-mgmt-form-textarea {
+	width: 100%;
+	padding: var(--spacing-md);
+	border: 1px solid var(--md-sys-color-outline);
+	border-radius: var(--radius-md);
+	background-color: var(--md-sys-color-surface);
+	color: var(--md-sys-color-on-surface);
+	font-family: var(--md-sys-typescale-body-large-font);
+	font-size: var(--md-sys-typescale-body-large-size);
+	transition: all var(--transition-normal);
+	box-sizing: border-box;
+	min-height: 58px;
+	margin-bottom: var(--spacing-md);
+	transition: background-color var(--transition-normal) !important;
+}
+
+.dept-mgmt-form-input:focus,
+.dept-mgmt-form-textarea:focus {
+	outline: none;
+	border-color: var(--md-sys-color-primary);
+	box-shadow: 0 0 0 1px var(--md-sys-color-primary);
+}
+
+.dept-mgmt-form-input:disabled,
+.dept-mgmt-form-textarea:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.dept-mgmt-form-textarea {
+	resize: vertical;
+	min-height: 100px;
+	font-family: inherit;
+}
+
+/* Buttons */
+.dept-mgmt-btn {
+	padding: var(--spacing-md) var(--spacing-lg);
+	border: none;
+	border-radius: var(--radius-md);
+	font-family: var(--md-sys-typescale-label-large-font);
+	font-size: var(--md-sys-typescale-label-large-size);
+	font-weight: var(--md-sys-typescale-label-large-weight);
+	cursor: pointer;
+	transition: all var(--transition-normal);
+	display: inline-flex;
+	align-items: center;
+	gap: var(--spacing-xs);
+}
+
+/* Primary Button */
+.dept-mgmt-btn-primary {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-sm);
+	padding: var(--spacing-md) var(--spacing-lg);
+	border: none;
+	border-radius: var(--radius-full);
+	background: var(--md-sys-color-primary);
+	color: var(--md-sys-color-on-primary);
+	font-family: var(--md-sys-typescale-label-large-font);
+	font-size: var(--md-sys-typescale-label-large-size);
+	font-weight: var(--md-sys-typescale-label-large-weight);
+	cursor: pointer;
+	transition: all var(--transition-normal);
+	min-height: 56px;
+	min-width: 160px;
+	justify-content: center;
+}
+
+.dept-mgmt-btn-primary:hover {
+	background: var(--md-sys-color-primary-container);
+	color: var(--md-sys-color-on-primary-container);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dept-mgmt-btn-primary:disabled {
+	background: var(--md-sys-color-surface-variant);
+	color: var(--md-sys-color-on-surface-variant);
+	cursor: not-allowed;
+	transform: none;
+	box-shadow: none;
+}
+
+/* Secondary Button */
+.dept-mgmt-btn-secondary {
+	background-color: var(--md-sys-color-surface);
+	color: var(--md-sys-color-on-surface);
+	border: 1px solid var(--md-sys-color-outline);
+	border-radius: var(--radius-md);
+	padding: var(--spacing-sm) var(--spacing-lg);
+	font-family: var(--md-sys-typescale-label-large-font);
+	font-size: var(--md-sys-typescale-label-large-size);
+	font-weight: var(--md-sys-typescale-label-large-weight);
+	cursor: pointer;
+	transition: all var(--transition-normal);
+	min-width: 80px;
+	height: 40px;
+}
+
+.dept-mgmt-btn-secondary:hover {
+	background-color: var(--md-sys-color-surface-variant);
+	border-color: var(--md-sys-color-outline-variant);
+	box-shadow: var(--elevation-1);
+}
+
+.dept-mgmt-btn-secondary:active {
+	background-color: var(--md-sys-color-surface-container-high);
+	transform: scale(0.98);
+	box-shadow: none;
+}
+
+.dept-mgmt-btn-outline {
+	background-color: transparent;
+	color: var(--md-sys-color-primary);
+	border: 1px solid var(--md-sys-color-outline);
+}
+
+.dept-mgmt-btn-outline:hover {
+	background-color: var(--md-sys-color-primary-container);
+	color: var(--md-sys-color-on-primary-container);
+}
+
+/* Small Action Buttons */
+.dept-mgmt-btn-small {
+	background-color: var(--md-sys-color-surface);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-md);
+	padding: var(--spacing-sm);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	flex-shrink: 0;
+	color: var(--md-sys-color-on-surface-variant);
+	cursor: pointer;
+	transition: all var(--transition-normal);
+}
+
+.dept-mgmt-btn-small:hover {
+	background-color: var(--md-sys-color-surface-variant);
+	border-color: var(--md-sys-color-outline);
+	color: var(--md-sys-color-on-surface);
+	box-shadow: var(--elevation-1);
+}
+
+.dept-mgmt-btn-small:active {
+	background-color: var(--md-sys-color-surface-container-high);
+	box-shadow: none;
+	transform: scale(0.95);
+}
+
+.dept-mgmt-btn-small .material-symbols-outlined {
+	font-size: 18px;
+	transition: inherit;
+}
+
+/* Danger Button */
+.dept-mgmt-btn-danger {
+	background-color: var(--md-sys-color-surface);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-md);
+	padding: var(--spacing-sm);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	flex-shrink: 0;
+	color: var(--md-sys-color-error);
+	cursor: pointer;
+	transition: all var(--transition-normal);
+}
+
+.dept-mgmt-btn-danger:hover {
+	background-color: var(--md-sys-color-error-container);
+	border-color: var(--md-sys-color-error);
+	color: var(--md-sys-color-on-error-container);
+	box-shadow: var(--elevation-1);
+}
+
+.dept-mgmt-btn-danger:active {
+	background-color: var(--md-sys-color-error-container);
+	box-shadow: none;
+	transform: scale(0.95);
+}
+
+.dept-mgmt-btn-danger .material-symbols-outlined {
+	font-size: 18px;
+	transition: inherit;
+}
+
+.dept-mgmt-btn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.create-button,
+.save-button,
+.cancel-button,
+.assignment-button,
+.action-button {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--spacing-sm);
+	padding: var(--spacing-md) var(--spacing-lg);
+	border: none;
+	border-radius: var(--md-sys-shape-corner-full);
+	font-family: var(--md-sys-typescale-label-large-font);
+	font-size: var(--md-sys-typescale-label-large-size);
+	font-weight: var(--md-sys-typescale-label-large-weight);
+	cursor: pointer;
+	transition: all 0.2s ease;
+	text-decoration: none;
+}
+
+.create-button,
+.save-button {
+	background-color: var(--md-sys-color-primary);
+	color: var(--md-sys-color-on-primary);
+}
+
+.create-button:hover,
+.save-button:hover {
+	background-color: var(--md-sys-color-primary-container);
+	color: var(--md-sys-color-on-primary-container);
+	box-shadow: var(--md-sys-elevation-level1);
+}
+
+.create-button:disabled,
+.save-button:disabled {
+	background-color: var(--md-sys-color-surface-variant);
+	color: var(--md-sys-color-on-surface-variant);
+	cursor: not-allowed;
+}
+
+.cancel-button {
+	background-color: var(--md-sys-color-surface-variant);
+	color: var(--md-sys-color-on-surface-variant);
+}
+
+.cancel-button:hover {
+	background-color: var(--md-sys-color-surface-container-high);
+}
+
+.assignment-button {
+	background-color: var(--md-sys-color-secondary-container);
+	color: var(--md-sys-color-on-secondary-container);
+	padding: var(--spacing-sm) var(--spacing-md);
+	font-size: var(--md-sys-typescale-body-medium-size);
+}
+
+.assignment-button:hover {
+	background-color: var(--md-sys-color-secondary);
+	color: var(--md-sys-color-on-secondary);
+}
+
+.action-button {
+	padding: var(--spacing-sm);
+	border-radius: var(--md-sys-shape-corner-small);
+	background-color: transparent;
+	color: var(--md-sys-color-on-surface-variant);
+}
+
+.action-button:hover {
+	background-color: var(--md-sys-color-surface-container-high);
+}
+
+.action-button.edit:hover {
+	background-color: var(--md-sys-color-tertiary-container);
+	color: var(--md-sys-color-on-tertiary-container);
+}
+
+.action-button.delete:hover {
+	background-color: var(--md-sys-color-error-container);
+	color: var(--md-sys-color-on-error-container);
+}
+
+/* Custom Dropdown Styles */
+.dept-mgmt-custom-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.dept-mgmt-dropdown-trigger {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--radius-md);
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  font-family: var(--md-sys-typescale-body-large-font);
+  font-size: var(--md-sys-typescale-body-large-size);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal), background-color var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  box-sizing: border-box;
+  height: 58px;
+}
+
+.dept-mgmt-dropdown-trigger:hover {
+  border-color: var(--md-sys-color-primary);
+}
+
+.dept-mgmt-dropdown-trigger:focus {
+  outline: none;
+  border-color: var(--md-sys-color-primary);
+  box-shadow: 0 0 0 2px var(--md-sys-color-primary-container);
+}
+
+.dept-mgmt-dropdown-trigger:disabled {
+  background-color: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface-variant);
+  cursor: not-allowed;
+  border-color: var(--md-sys-color-outline-variant);
+}
+
+.dept-mgmt-dropdown-trigger.selected {
+  border-color: var(--md-sys-color-primary);
+}
+
+.dept-mgmt-selected-option {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex: 1;
+}
+
+.dept-mgmt-option-name {
+  font-family: var(--md-sys-typescale-body-medium-font);
+  font-size: var(--md-sys-typescale-body-medium-size);
+  font-weight: var(--md-sys-typescale-body-medium-weight);
+  color: var(--md-sys-color-on-surface);
+}
+
+.dept-mgmt-option-description {
+  font-family: var(--md-sys-typescale-body-small-font);
+  font-size: var(--md-sys-typescale-body-small-size);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.dept-mgmt-option-icon {
+  font-size: 20px;
+  color: var(--md-sys-color-primary);
+}
+
+.dept-mgmt-placeholder {
+  color: var(--md-sys-color-on-surface-variant);
+  font-style: italic;
+}
+
+.dept-mgmt-dropdown-arrow {
+  font-size: 20px;
+  color: var(--md-sys-color-on-surface-variant);
+  transition: transform var(--transition-normal);
+}
+
+.dept-mgmt-custom-dropdown.open .dept-mgmt-dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.dept-mgmt-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--elevation-2);
+  z-index: 1010;
+  overflow-y: auto;
+  margin-top: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  max-height: 300px;
+  transition: opacity var(--transition-normal), visibility var(--transition-normal), transform var(--transition-normal);
+}
+
+.dept-mgmt-custom-dropdown.open .dept-mgmt-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dept-mgmt-dropdown-option {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: none;
+  background-color: transparent;
+  color: var(--md-sys-color-on-surface);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--transition-normal);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  box-sizing: border-box;
+}
+
+.dept-mgmt-dropdown-option:hover {
+  background-color: var(--md-sys-color-surface-container-high);
+}
+
+.dept-mgmt-dropdown-option.selected {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.dept-mgmt-dropdown-option.selected .dept-mgmt-option-icon {
+  color: var(--md-sys-color-primary);
+}
+
+
+/* Subject Selection Styles */
+.dept-mgmt-selected-subjects {
+  background-color: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.dept-mgmt-selected-subjects-header {
+  margin-bottom: var(--spacing-sm);
+}
+
+.dept-mgmt-selected-count {
+  font-family: var(--md-sys-typescale-body-medium-font);
+  font-size: var(--md-sys-typescale-body-medium-size);
+  font-weight: var(--md-sys-typescale-body-medium-weight);
+  color: var(--md-sys-color-primary);
+}
+
+.dept-mgmt-selected-subjects-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.dept-mgmt-selected-subject-chip {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-full);
+  font-family: var(--md-sys-typescale-body-small-font);
+  font-size: var(--md-sys-typescale-body-small-size);
+}
+
+.dept-mgmt-subject-name {
+  font-weight: var(--md-sys-typescale-body-small-weight);
+}
+
+.dept-mgmt-subject-code {
+  opacity: 0.8;
+  font-size: calc(var(--md-sys-typescale-body-small-size) * 0.9);
+}
+
+.dept-mgmt-remove-subject {
+  background: none;
+  border: none;
+  color: var(--md-sys-color-on-primary-container);
+  cursor: pointer;
+  padding: 2px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-normal);
+}
+
+.dept-mgmt-remove-subject:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dept-mgmt-remove-subject .material-symbols-outlined {
+  font-size: 16px;
+}
+
+.dept-mgmt-subject-option {
+  padding-left: var(--spacing-md);
+}
+
+.dept-mgmt-subject-checkbox {
+  margin-right: var(--spacing-xs);
+}
+
+.dept-mgmt-subject-checkbox .material-symbols-outlined {
+  font-size: 20px;
+  color: var(--md-sys-color-primary);
+}
+
+/* Teacher Selection Styles */
+.dept-mgmt-selected-teachers {
+  background-color: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.dept-mgmt-selected-teachers-header {
+  margin-bottom: var(--spacing-sm);
+}
+
+.dept-mgmt-selected-teachers-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.dept-mgmt-selected-teacher-chip {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-full);
+  font-family: var(--md-sys-typescale-body-small-font);
+  font-size: var(--md-sys-typescale-body-small-size);
+}
+
+.dept-mgmt-teacher-name {
+  font-weight: var(--md-sys-typescale-body-small-weight);
+}
+
+.dept-mgmt-teacher-subject {
+  opacity: 0.8;
+  font-size: calc(var(--md-sys-typescale-body-small-size) * 0.9);
+}
+
+.dept-mgmt-remove-teacher {
+  background: none;
+  border: none;
+  color: var(--md-sys-color-on-secondary-container);
+  cursor: pointer;
+  padding: 2px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-normal);
+}
+
+.dept-mgmt-remove-teacher:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dept-mgmt-remove-teacher .material-symbols-outlined {
+  font-size: 16px;
+}
+
+.dept-mgmt-teacher-option {
+  padding-left: var(--spacing-md);
+}
+
+.dept-mgmt-teacher-checkbox {
+  margin-right: var(--spacing-xs);
+}
+
+.dept-mgmt-teacher-checkbox .material-symbols-outlined {
+  font-size: 20px;
+  color: var(--md-sys-color-primary);
+}
+.dept-mgmt-form-actions {
+	display: flex;
+	justify-content: end;
+}
+
+/* Loading States */
+.dept-mgmt-loading-icon {
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+/* Department Details */
+.dept-mgmt-department-details {
+	display: flex;
+	gap: var(--spacing-xl);
+	flex-wrap: wrap;
+	margin-bottom: var(--spacing-md);
+}
+
+.dept-mgmt-department-subjects,
+.dept-mgmt-department-teachers,
+.dept-mgmt-department-created,
+.dept-mgmt-department-code {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-xs);
+	font-size: 0.875rem;
+	color: var(--md-sys-color-on-surface-variant);
+	opacity: 0.85;
+}
+
+.dept-mgmt-department-subjects .material-symbols-outlined,
+.dept-mgmt-department-teachers .material-symbols-outlined,
+.dept-mgmt-department-created .material-symbols-outlined,
+.dept-mgmt-department-code .material-symbols-outlined {
+	font-size: 0.875rem;
+}
+
+/* View Details Button */
+.dept-mgmt-view-details-button {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-xs);
+	background-color: var(--md-sys-color-surface-container);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-sm);
+	padding: var(--spacing-sm) var(--spacing-md);
+	font-family: var(--md-sys-typescale-label-medium-font);
+	font-size: var(--md-sys-typescale-label-medium-size);
+	font-weight: var(--md-sys-typescale-label-medium-weight);
+	color: var(--md-sys-color-primary);
+	cursor: pointer;
+	transition: all var(--transition-normal);
+	margin-top: var(--spacing-sm);
+}
+
+.dept-mgmt-view-details-button:hover {
+	background-color: var(--md-sys-color-primary-container);
+	border-color: var(--md-sys-color-primary);
+	color: var(--md-sys-color-on-primary-container);
+	box-shadow: var(--elevation-1);
+}
+
+.dept-mgmt-view-details-button .material-symbols-outlined {
+	font-size: 18px;
+	transition: inherit;
+}
+
+.dept-mgmt-view-details-button:active {
+	background-color: var(--md-sys-color-primary-container);
+	box-shadow: none;
+	transform: scale(0.98);
+}
+
+/* Expanded Details Section */
+.dept-mgmt-department-expanded-details {
+	margin-top: var(--spacing-lg);
+	padding-top: var(--spacing-lg);
+	border-top: 1px solid var(--md-sys-color-outline-variant);
+	animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.dept-mgmt-assigned-section {
+	margin-bottom: var(--spacing-lg);
+}
+
+.dept-mgmt-assigned-section:last-child {
+	margin-bottom: 0;
+}
+
+.dept-mgmt-assigned-title {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-sm);
+	font-family: var(--md-sys-typescale-title-small-font);
+	font-size: var(--md-sys-typescale-title-small-size);
+	font-weight: var(--md-sys-typescale-title-small-weight);
+	color: var(--md-sys-color-on-surface);
+	margin: 0 0 var(--spacing-md) 0;
+}
+
+.dept-mgmt-assigned-title .material-symbols-outlined {
+	font-size: 20px;
+	color: var(--md-sys-color-primary);
+}
+
+.dept-mgmt-assigned-items {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: var(--spacing-sm);
+}
+
+.dept-mgmt-assigned-item {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-sm);
+	padding: var(--spacing-sm) var(--spacing-md);
+	background-color: var(--md-sys-color-surface-container-highest);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-sm);
+	transition: all var(--transition-normal);
+}
+
+.dept-mgmt-assigned-item:hover {
+	background-color: var(--md-sys-color-surface-container-high);
+	border-color: var(--md-sys-color-outline);
+	box-shadow: var(--elevation-1);
+}
+
+.dept-mgmt-item-icon {
+	font-size: 18px;
+	color: var(--md-sys-color-primary);
+	flex-shrink: 0;
+}
+
+.dept-mgmt-item-content {
+	flex: 1;
+	min-width: 0;
+}
+
+.dept-mgmt-item-name {
+	display: block;
+	font-family: var(--md-sys-typescale-body-medium-font);
+	font-size: var(--md-sys-typescale-body-medium-size);
+	font-weight: 500;
+	color: var(--md-sys-color-on-surface);
+	margin-bottom: var(--spacing-xs);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.dept-mgmt-item-details {
+	display: block;
+	font-family: var(--md-sys-typescale-body-small-font);
+	font-size: var(--md-sys-typescale-body-small-size);
+	color: var(--md-sys-color-on-surface-variant);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.dept-mgmt-assigned-subject {
+	border-left: 3px solid var(--md-sys-color-tertiary);
+}
+
+.dept-mgmt-assigned-teacher {
+	border-left: 3px solid var(--md-sys-color-secondary);
+}
+
+/* Assignment Actions */
+.dept-mgmt-assignment-actions {
+	display: flex;
+	gap: var(--spacing-sm);
+	margin-top: var(--spacing-md);
+}
+
+/* Current Assignments */
+.dept-mgmt-current-assignments {
+	margin-top: var(--spacing-lg);
+}
+
+.dept-mgmt-assignments-title {
+	font-family: var(--md-sys-typescale-title-medium-font);
+	font-size: var(--md-sys-typescale-title-medium-size);
+	font-weight: var(--md-sys-typescale-title-medium-weight);
+	color: var(--md-sys-color-on-surface);
+	margin: 0 0 var(--spacing-md) 0;
+}
+
+.dept-mgmt-assignments-list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-sm);
+}
+
+.dept-mgmt-assignment-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: var(--spacing-sm) var(--spacing-md);
+	background-color: var(--md-sys-color-surface-container-highest);
+	border-radius: var(--radius-sm);
+	border: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.dept-mgmt-assignment-info {
+	flex: 1;
+}
+
+.dept-mgmt-assignment-name {
+	font-family: var(--md-sys-typescale-body-medium-font);
+	font-size: var(--md-sys-typescale-body-medium-size);
+	font-weight: 500;
+	color: var(--md-sys-color-on-surface);
+	margin: 0;
+}
+
+.dept-mgmt-assignment-type {
+	font-family: var(--md-sys-typescale-body-small-font);
+	font-size: var(--md-sys-typescale-body-small-size);
+	color: var(--md-sys-color-on-surface-variant);
+	margin: 0;
+}
+
+/* Empty State */
+.dept-mgmt-empty-state {
+	text-align: center;
+	padding: var(--spacing-xl);
+	color: var(--md-sys-color-on-surface-variant);
+	border: 2px dashed var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-lg);
+	margin-top: var(--spacing-lg);
+}
+
+.dept-mgmt-empty-icon {
+	font-size: 48px;
+	margin-bottom: var(--spacing-md);
+	display: block;
+}
+
+.dept-mgmt-empty-title {
+	font-family: var(--md-sys-typescale-headline-small-font);
+	font-size: var(--md-sys-typescale-headline-small-size);
+	font-weight: var(--md-sys-typescale-headline-small-weight);
+	margin: 0 0 var(--spacing-sm) 0;
+}
+
+.dept-mgmt-empty-description {
+	font-family: var(--md-sys-typescale-body-large-font);
+	font-size: var(--md-sys-typescale-body-large-size);
+	margin: 0;
+}
+
+/* Departments Grid */
+.dept-mgmt-departments-grid {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-md);
+}
+
+/* Department Card - Following existing card pattern */
+.dept-mgmt-department-card {
+	background-color: var(--md-sys-color-surface-container);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-lg);
+	padding: var(--spacing-lg);
+	transition: all var(--transition-normal);
+	cursor: pointer;
+	color: var(--md-sys-color-on-surface);
+}
+
+.dept-mgmt-department-card:hover:not(.editing):not(.assigning) {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dept-mgmt-department-card.editing,
+.dept-mgmt-department-card.assigning {
+	cursor: default;
+}
+
+/* Department Header */
+.dept-mgmt-department-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin-bottom: var(--spacing-md);
+}
+
+.dept-mgmt-department-title {
+	display: block;
+}
+
+.dept-mgmt-department-name {
+	margin: 0;
+	font-size: 1.125rem;
+	font-weight: 600;
+	color: var(--md-sys-color-on-surface);
+}
+
+
+
+/* Action Buttons Container */
+.dept-mgmt-action-buttons {
+	display: flex;
+	gap: var(--spacing-xs);
+	align-items: center;
+}
+
+/* Edit Button */
+.dept-mgmt-edit-button {
+	background-color: var(--md-sys-color-surface);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-md);
+	padding: var(--spacing-sm);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	flex-shrink: 0;
+	color: var(--md-sys-color-on-surface-variant);
+	cursor: pointer;
+	transition: all var(--transition-normal);
+}
+
+.dept-mgmt-edit-button:hover {
+	background-color: var(--md-sys-color-surface-variant);
+	border-color: var(--md-sys-color-outline);
+	color: var(--md-sys-color-on-surface);
+	box-shadow: var(--elevation-1);
+}
+
+.dept-mgmt-edit-button .material-symbols-outlined {
+	font-size: 18px;
+	transition: inherit;
+}
+
+.dept-mgmt-edit-button:active {
+	background-color: var(--md-sys-color-surface-container-high);
+	box-shadow: none;
+	transform: scale(0.95);
+}
+
+/* Assign Button */
+.dept-mgmt-assign-button {
+	background-color: var(--md-sys-color-surface);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-md);
+	padding: var(--spacing-sm);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	flex-shrink: 0;
+	color: var(--md-sys-color-primary);
+	cursor: pointer;
+	transition: all var(--transition-normal);
+}
+
+.dept-mgmt-assign-button:hover {
+	background-color: var(--md-sys-color-primary-container);
+	border-color: var(--md-sys-color-primary);
+	color: var(--md-sys-color-on-primary-container);
+	box-shadow: var(--elevation-1);
+}
+
+.dept-mgmt-assign-button .material-symbols-outlined {
+	font-size: 18px;
+	transition: inherit;
+}
+
+.dept-mgmt-assign-button:active {
+	background-color: var(--md-sys-color-primary-container);
+	box-shadow: none;
+	transform: scale(0.95);
+}
+
+.dept-mgmt-remove-button {
+	background-color: var(--md-sys-color-surface);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-md);
+	padding: var(--spacing-sm);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	flex-shrink: 0;
+	color: var(--md-sys-color-error);
+	cursor: pointer;
+	transition: all var(--transition-normal);
+}
+
+.dept-mgmt-remove-button:hover {
+	background-color: var(--md-sys-color-error-container);
+	border-color: var(--md-sys-color-error);
+	color: var(--md-sys-color-on-error-container);
+	box-shadow: var(--elevation-1);
+}
+
+.dept-mgmt-remove-button .material-symbols-outlined {
+	font-size: 18px;
+	transition: inherit;
+}
+
+.dept-mgmt-remove-button:active {
+	background-color: var(--md-sys-color-error-container);
+	box-shadow: none;
+	transform: scale(0.95);
+}
+
+/* Edit Form */
+.edit-form {
+	background-color: var(--md-sys-color-surface-container-low);
+	border-radius: var(--md-sys-shape-corner-medium);
+	padding: var(--spacing-lg);
+	margin-bottom: var(--spacing-lg);
+	border: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.edit-actions {
+	display: flex;
+	gap: var(--spacing-md);
+	margin-top: var(--spacing-lg);
+}
+
+/* Department Stats */
+.department-stats {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: var(--spacing-lg);
+	padding: var(--spacing-md);
+	background-color: var(--md-sys-color-surface-container-low);
+	border-radius: var(--md-sys-shape-corner-medium);
+}
+
+.stat-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--spacing-xs);
+	text-align: center;
+}
+
+.stat-icon {
+	font-size: 20px;
+	color: var(--md-sys-color-primary);
+}
+
+.stat-value {
+	font-family: var(--md-sys-typescale-title-medium-font);
+	font-size: var(--md-sys-typescale-title-medium-size);
+	font-weight: var(--md-sys-typescale-title-medium-weight);
+	color: var(--md-sys-color-on-surface);
+}
+
+.stat-label {
+	font-family: var(--md-sys-typescale-body-small-font);
+	font-size: var(--md-sys-typescale-body-small-size);
+	color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Assignment Actions */
+.assignment-actions {
+	display: flex;
+	gap: var(--spacing-md);
+	margin-bottom: var(--spacing-lg);
+}
+
+/* Current Assignments */
+.current-assignments {
+	border-top: 1px solid var(--md-sys-color-outline-variant);
+	padding-top: var(--spacing-lg);
+}
+
+.assignment-group {
+	margin-bottom: var(--spacing-md);
+}
+
+.assignment-group:last-child {
+		margin-bottom: 0;
+	}
+
+	/* Edit Form Styles */
+	.dept-mgmt-edit-form-section {
+		margin-top: var(--spacing-md);
+		animation: slideDown 0.3s ease-out;
+	}
+
+	@keyframes slideDown {
+		from {
+			opacity: 0;
+			transform: translateY(-10px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.dept-mgmt-edit-form-container {
+		background-color: var(--md-sys-color-surface-container);
+		border: 1px solid var(--md-sys-color-outline-variant);
+		border-radius: var(--radius-lg);
+		padding: var(--spacing-lg);
+		box-shadow: var(--elevation-1);
+	}
+
+	.dept-mgmt-edit-form-header {
+		margin-bottom: var(--spacing-xl);
+		padding-bottom: var(--spacing-md);
+		border-bottom: 1px solid var(--md-sys-color-outline-variant);
+	}
+
+	.dept-mgmt-edit-form-title {
+		font-family: var(--md-sys-typescale-title-medium-font);
+		font-size: var(--md-sys-typescale-title-medium-size);
+		font-weight: var(--md-sys-typescale-title-medium-weight);
+		color: var(--md-sys-color-on-surface);
+		margin: 0 0 var(--spacing-xs) 0;
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-sm);
+	}
+
+	.dept-mgmt-edit-form-title::before {
+		content: 'edit';
+		font-family: 'Material Symbols Outlined';
+		font-size: var(--md-sys-typescale-title-medium-size);
+		color: var(--md-sys-color-primary);
+	}
+
+	.dept-mgmt-edit-form-subtitle {
+		font-family: var(--md-sys-typescale-body-medium-font);
+		font-size: var(--md-sys-typescale-body-medium-size);
+		color: var(--md-sys-color-on-surface-variant);
+		margin: 0;
+	}
+
+	.dept-mgmt-edit-form-content {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.dept-mgmt-edit-info-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--spacing-md);
+		margin-bottom: var(--spacing-md);
+	}
+
+	.dept-mgmt-form-input {
+		padding: var(--spacing-md);
+		border: 1px solid var(--md-sys-color-outline);
+		border-radius: var(--radius-sm);
+		font-family: var(--md-sys-typescale-body-medium-font);
+		font-size: var(--md-sys-typescale-body-medium-size);
+		color: var(--md-sys-color-on-surface);
+		background-color: var(--md-sys-color-surface);
+		transition: border-color 0.2s ease;
+	}
+
+	.dept-mgmt-form-input:focus {
+		outline: none;
+		border-color: var(--md-sys-color-primary);
+		box-shadow: 0 0 0 1px var(--md-sys-color-primary);
+	}
+
+	.dept-mgmt-edit-form-actions {
+		display: flex;
+		gap: var(--spacing-md);
+		justify-content: flex-end;
+		padding-top: var(--spacing-lg);
+		border-top: 1px solid var(--md-sys-color-outline-variant);
+	}
+
+	.dept-mgmt-cancel-button {
+		background-color: var(--md-sys-color-surface);
+		color: var(--md-sys-color-on-surface);
+		border: 1px solid var(--md-sys-color-outline);
+		border-radius: var(--radius-sm);
+		padding: var(--spacing-sm) var(--spacing-lg);
+		font-family: var(--md-sys-typescale-label-large-font);
+		font-size: var(--md-sys-typescale-label-large-size);
+		font-weight: var(--md-sys-typescale-label-large-weight);
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.dept-mgmt-cancel-button:hover {
+		background-color: var(--md-sys-color-surface-container);
+		border-color: var(--md-sys-color-outline-variant);
+	}
+
+	.dept-mgmt-update-button {
+		background-color: var(--md-sys-color-primary);
+		color: var(--md-sys-color-on-primary);
+		border: none;
+		border-radius: var(--radius-sm);
+		padding: var(--spacing-sm) var(--spacing-lg);
+		font-family: var(--md-sys-typescale-label-large-font);
+		font-size: var(--md-sys-typescale-label-large-size);
+		font-weight: var(--md-sys-typescale-label-large-weight);
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.dept-mgmt-update-button:hover:not(:disabled) {
+		background-color: var(--md-sys-color-primary-container);
+		color: var(--md-sys-color-on-primary-container);
+	}
+
+	.dept-mgmt-update-button:disabled {
+		background-color: var(--md-sys-color-surface-variant);
+		color: var(--md-sys-color-on-surface-variant);
+		cursor: not-allowed;
+		opacity: 0.6;
+	}
+
+.assignment-title {
+	font-family: var(--md-sys-typescale-title-small-font);
+	font-size: var(--md-sys-typescale-title-small-size);
+	font-weight: var(--md-sys-typescale-title-small-weight);
+	color: var(--md-sys-color-on-surface);
+	margin: 0 0 var(--spacing-sm) 0;
+}
+
+.assignment-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--spacing-xs);
+}
+
+.assignment-tag {
+	display: inline-block;
+	padding: var(--spacing-xs) var(--spacing-sm);
+	border-radius: var(--md-sys-shape-corner-full);
+	font-family: var(--md-sys-typescale-body-small-font);
+	font-size: var(--md-sys-typescale-body-small-size);
+	font-weight: 500;
+}
+
+.subject-tag {
+	background-color: var(--md-sys-color-tertiary-container);
+	color: var(--md-sys-color-on-tertiary-container);
+}
+
+.teacher-tag {
+	background-color: var(--md-sys-color-secondary-container);
+	color: var(--md-sys-color-on-secondary-container);
+}
+
+/* Warning text */
+.warning-text {
+	color: var(--md-sys-color-error);
+	font-weight: 500;
+}
+
+/* Custom Dropdown Styles for Assignment */
+.dept-mgmt-custom-dropdown {
+	position: relative;
+	width: 100%;
+}
+
+.dept-mgmt-dropdown-trigger {
+	width: 100%;
+	padding: var(--spacing-md);
+	border: 1px solid var(--md-sys-color-outline);
+	border-radius: var(--radius-md);
+	background-color: var(--md-sys-color-surface);
+	color: var(--md-sys-color-on-surface);
+	font-family: var(--md-sys-typescale-body-large-font);
+	font-size: var(--md-sys-typescale-body-large-size);
+	text-align: left;
+	cursor: pointer;
+	transition: border-color var(--transition-normal), box-shadow var(--transition-normal), background-color var(--transition-normal);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--spacing-sm);
+	box-sizing: border-box;
+	height: 58px;
+}
+
+.dept-mgmt-dropdown-trigger:hover {
+	border-color: var(--md-sys-color-primary);
+}
+
+.dept-mgmt-dropdown-trigger:focus {
+	outline: none;
+	border-color: var(--md-sys-color-primary);
+	box-shadow: 0 0 0 2px var(--md-sys-color-primary-container);
+}
+
+.dept-mgmt-dropdown-trigger:disabled {
+	background-color: var(--md-sys-color-surface-variant);
+	color: var(--md-sys-color-on-surface-variant);
+	cursor: not-allowed;
+	border-color: var(--md-sys-color-outline-variant);
+}
+
+.dept-mgmt-dropdown-trigger.selected {
+	border-color: var(--md-sys-color-primary);
+}
+
+.dept-mgmt-selected-option {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-sm);
+	flex: 1;
+}
+
+
+.dept-mgmt-option-name {
+	font-family: var(--md-sys-typescale-body-medium-font);
+	font-size: var(--md-sys-typescale-body-medium-size);
+	font-weight: var(--md-sys-typescale-body-medium-weight);
+	color: var(--md-sys-color-on-surface);
+}
+
+.dept-mgmt-option-description {
+	font-family: var(--md-sys-typescale-body-small-font);
+	font-size: var(--md-sys-typescale-body-small-size);
+	color: var(--md-sys-color-on-surface-variant);
+}
+
+.dept-mgmt-option-icon {
+	font-size: 20px;
+	color: var(--md-sys-color-primary);
+}
+
+.dept-mgmt-placeholder {
+	color: var(--md-sys-color-on-surface-variant);
+	font-style: italic;
+}
+
+.dept-mgmt-dropdown-arrow {
+	font-size: 20px;
+	color: var(--md-sys-color-on-surface-variant);
+	transition: transform var(--transition-normal);
+}
+
+.dept-mgmt-custom-dropdown.open .dept-mgmt-dropdown-arrow {
+	transform: rotate(180deg);
+}
+
+.dept-mgmt-dropdown-menu {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	background-color: var(--md-sys-color-surface-container);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-sm);
+	box-shadow: var(--elevation-2);
+	z-index: 9999;
+	overflow-y: auto;
+	margin-top: 4px;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-8px);
+	max-height: 300px;
+	transition: opacity var(--transition-normal), visibility var(--transition-normal), transform var(--transition-normal);
+}
+
+.dept-mgmt-custom-dropdown.open .dept-mgmt-dropdown-menu {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+.dept-mgmt-dropdown-option {
+	width: 100%;
+	padding: var(--spacing-md);
+	border: none;
+	background-color: transparent;
+	color: var(--md-sys-color-on-surface);
+	text-align: left;
+	cursor: pointer;
+	transition: background-color var(--transition-normal);
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-sm);
+	box-sizing: border-box;
+}
+
+.dept-mgmt-dropdown-option:hover {
+	background-color: var(--md-sys-color-surface-container-high);
+}
+
+.dept-mgmt-dropdown-option.selected {
+	background-color: var(--md-sys-color-primary-container);
+	color: var(--md-sys-color-on-primary-container);
+}
+
+.dept-mgmt-dropdown-option.selected .dept-mgmt-option-icon {
+	color: var(--md-sys-color-primary);
+}
+
+/* Checkbox Styles */
+.dept-mgmt-subject-checkbox,
+.dept-mgmt-teacher-checkbox {
+	margin-right: var(--spacing-xs);
+}
+
+.dept-mgmt-subject-checkbox .material-symbols-outlined,
+.dept-mgmt-teacher-checkbox .material-symbols-outlined {
+	font-size: 20px;
+	color: var(--md-sys-color-primary);
+}
+
+/* Assign Form Styles */
+.dept-mgmt-assign-form-section {
+	margin-top: var(--spacing-md);
+	animation: slideDown 0.3s ease-out;
+}
+
+.dept-mgmt-assign-form-container {
+	background-color: var(--md-sys-color-surface-container);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-lg);
+	padding: var(--spacing-lg);
+	box-shadow: var(--elevation-1);
+}
+
+.dept-mgmt-assign-form-header {
+	margin-bottom: var(--spacing-xl);
+	padding-bottom: var(--spacing-md);
+	border-bottom: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.dept-mgmt-assign-form-title {
+	font-family: var(--md-sys-typescale-title-medium-font);
+	font-size: var(--md-sys-typescale-title-medium-size);
+	font-weight: var(--md-sys-typescale-title-medium-weight);
+	color: var(--md-sys-color-on-surface);
+	margin: 0 0 var(--spacing-xs) 0;
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-sm);
+}
+
+.dept-mgmt-assign-form-title::before {
+	content: 'add_circle';
+	font-family: 'Material Symbols Outlined';
+	font-size: var(--md-sys-typescale-title-medium-size);
+	color: var(--md-sys-color-primary);
+}
+
+.dept-mgmt-assign-form-subtitle {
+	font-family: var(--md-sys-typescale-body-medium-font);
+	font-size: var(--md-sys-typescale-body-medium-size);
+	color: var(--md-sys-color-on-surface-variant);
+	margin: 0;
+}
+
+.dept-mgmt-assign-form-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.dept-mgmt-assign-info-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--spacing-lg);
+	margin-bottom: var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+	.dept-mgmt-assign-info-row {
+		grid-template-columns: 1fr;
+		gap: var(--spacing-md);
+	}
+	
+	.dept-mgmt-search-container {
+		min-width: auto;
+		width: 100%;
+	}
+	
+	.section-header-content {
+		flex-direction: column;
+		align-items: stretch;
+		gap: var(--spacing-md);
+	}
+}
+
+.dept-mgmt-assign-actions {
+	display: flex;
+	gap: var(--spacing-md);
+	justify-content: flex-end;
+	padding-top: var(--spacing-lg);
+	border-top: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.dept-mgmt-assign-submit-button {
+	background-color: var(--md-sys-color-primary);
+	color: var(--md-sys-color-on-primary);
+	border: none;
+	border-radius: var(--radius-sm);
+	padding: var(--spacing-sm) var(--spacing-lg);
+	font-family: var(--md-sys-typescale-label-large-font);
+	font-size: var(--md-sys-typescale-label-large-size);
+	font-weight: var(--md-sys-typescale-label-large-weight);
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.dept-mgmt-assign-submit-button:hover:not(:disabled) {
+	background-color: var(--md-sys-color-primary-container);
+	color: var(--md-sys-color-on-primary-container);
+}
+
+.dept-mgmt-assign-submit-button:disabled {
+	background-color: var(--md-sys-color-surface-variant);
+	color: var(--md-sys-color-on-surface-variant);
+	cursor: not-allowed;
+	opacity: 0.6;
+}
+
+/* Loading Container Styles */
+.dept-mgmt-loading {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: var(--spacing-xl);
+	min-height: 200px;
+	color: var(--md-sys-color-on-surface-variant);
+}
+
+.dept-mgmt-loading p {
+	font-family: var(--md-sys-typescale-body-large-font);
+	font-size: var(--md-sys-typescale-body-large-size);
+	font-weight: var(--md-sys-typescale-body-large-weight);
+	color: var(--md-sys-color-on-surface-variant);
+	margin: 0;
+	text-align: center;
+}
+
+/* Department Loader Animation */
+.dept-loader {
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background-color: var(--md-sys-color-on-surface-variant);
+	box-shadow: 32px 0 #fff, -32px 0 #fff;
+	position: relative;
+	animation: flash 0.5s ease-out infinite alternate;
+	margin-bottom: var(--spacing-md);
+}
+
+@keyframes flash {
+	0% {
+		background-color: #FFF2;
+		box-shadow: 32px 0 #FFF2, -32px 0 #FFF;
+	}
+	50% {
+		background-color: #FFF;
+		box-shadow: 32px 0 #FFF2, -32px 0 #FFF2;
+	}
+	100% {
+		background-color: #FFF2;
+		box-shadow: 32px 0 #FFF, -32px 0 #FFF2;
+	}
+}
+
+/* Form Select Styles */
+.dept-mgmt-form-select {
+	width: 100%;
+	min-height: 120px;
+	padding: 12px;
+	border: 2px solid #e5e7eb;
+	border-radius: 8px;
+	background-color: #ffffff;
+	font-size: 14px;
+	font-family: inherit;
+	color: #374151;
+	transition: all 0.2s ease;
+	resize: vertical;
+}
+
+.dept-mgmt-form-select:focus {
+	outline: none;
+	border-color: #3b82f6;
+	box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.dept-mgmt-form-select option {
+	padding: 8px;
+	background-color: #ffffff;
+	color: #374151;
+}
+
+.dept-mgmt-form-select option:checked {
+	background-color: #3b82f6;
+	color: #ffffff;
+}
+
+/* Subject and Teacher Controls Styles */
+.dept-mgmt-subject-controls,
+.dept-mgmt-teacher-controls {
+	display: flex;
+	gap: var(--spacing-sm);
+}
+
+.dept-mgmt-select-all-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--spacing-xs);
+	background: transparent;
+	border: none;
+	color: var(--md-sys-color-on-secondary-container);
+	border-radius: var(--radius-md);
+	font-family: var(--md-sys-typescale-label-medium-font);
+	font-size: var(--md-sys-typescale-label-medium-size);
+	font-weight: var(--md-sys-typescale-label-medium-weight);
+	cursor: pointer;
+	transition: all var(--transition-normal);
+	align-self: flex-start;
+	min-height: 58px;
+	min-width: 58px;
+}
+
+.dept-mgmt-select-all-button:hover {
+	color: var(--md-sys-color-secondary);
+}
+
+.dept-mgmt-select-all-button .material-symbols-outlined {
+	font-size: 24px;
+}
+
+/* Subject and Teacher List Styles */
+.dept-mgmt-subject-list,
+.dept-mgmt-teacher-list {
+	max-height: 117px;
+	overflow-y: auto;
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-md);
+	background: var(--md-sys-color-surface);
+}
+
+.dept-mgmt-subject-list::-webkit-scrollbar,
+.dept-mgmt-teacher-list::-webkit-scrollbar {
+	width: 6px;
+}
+
+.dept-mgmt-subject-list::-webkit-scrollbar-track,
+.dept-mgmt-teacher-list::-webkit-scrollbar-track {
+	background: var(--md-sys-color-surface-variant);
+}
+
+.dept-mgmt-subject-list::-webkit-scrollbar-thumb,
+.dept-mgmt-teacher-list::-webkit-scrollbar-thumb {
+	background: var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-sm);
+}
+
+.dept-mgmt-subject-item,
+.dept-mgmt-teacher-item {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-sm);
+	padding: var(--spacing-md) var(--spacing-md);
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid var(--md-sys-color-outline-variant);
+	cursor: pointer;
+	transition: all var(--transition-normal);
+	text-align: left;
+	justify-content: space-between;
+	min-height: 58px;
+}
+
+.dept-mgmt-subject-item:last-child,
+.dept-mgmt-teacher-item:last-child {
+	border-bottom: none;
+}
+
+.dept-mgmt-subject-item:hover,
+.dept-mgmt-teacher-item:hover {
+	background: var(--md-sys-color-surface-variant);
+}
+
+.dept-mgmt-subject-item.selected,
+.dept-mgmt-teacher-item.selected {
+	background: var(--md-sys-color-primary-container);
+	color: var(--md-sys-color-on-primary-container);
+}
+
+.dept-mgmt-subject-item .dept-mgmt-subject-checkbox,
+.dept-mgmt-teacher-item .dept-mgmt-teacher-checkbox {
+	margin-right: var(--spacing-xs);
+}
+
+.dept-mgmt-subject-item .dept-mgmt-option-icon,
+.dept-mgmt-teacher-item .dept-mgmt-option-icon {
+	font-size: 20px;
+	color: var(--md-sys-color-on-surface-variant);
+}
+
+.dept-mgmt-subject-item.selected .dept-mgmt-option-icon,
+.dept-mgmt-teacher-item.selected .dept-mgmt-option-icon {
+	color: var(--md-sys-color-on-primary-container);
+}
+
+.dept-mgmt-subject-item .dept-mgmt-option-content,
+.dept-mgmt-teacher-item .dept-mgmt-option-content {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-sm);
+}
+
+.dept-mgmt-form-help {
+	font-family: var(--md-sys-typescale-body-small-font);
+	font-size: var(--md-sys-typescale-body-small-size);
+	color: var(--md-sys-color-on-surface-variant);
+	margin-top: var(--spacing-xs);
+	margin-bottom: 0;
+}
+
+.dept-mgmt-selection-info {
+	margin-top: 8px;
+	font-size: 12px;
+	color: #6b7280;
+	font-style: italic;
+}
+
+.dept-mgmt-option-content {
+	display: flex;
+	gap: 2px;
+}
+
+.dept-mgmt-option-name {
+	font-family: var(--md-sys-typescale-body-medium-font);
+	font-size: var(--md-sys-typescale-body-medium-size);
+	font-weight: var(--md-sys-typescale-body-medium-weight);
+	color: var(--md-sys-color-on-surface);
+}
+
+.dept-mgmt-option-description {
+	font-family: var(--md-sys-typescale-body-small-font);
+	font-size: var(--md-sys-typescale-body-small-size);
+	color: var(--md-sys-color-on-surface-variant);
+}
+
+.dept-mgmt-option-icon {
+	font-size: 20px;
+	color: var(--md-sys-color-primary);
+}
+
+.dept-mgmt-placeholder {
+	color: var(--md-sys-color-on-surface-variant);
+	font-style: italic;
+}
+
+.dept-mgmt-dropdown-arrow {
+	font-size: 20px;
+	color: var(--md-sys-color-on-surface-variant);
+	transition: transform var(--transition-normal);
+}
+
+.dept-mgmt-custom-dropdown.open .dept-mgmt-dropdown-arrow {
+	transform: rotate(180deg);
+}
+
+.dept-mgmt-dropdown-menu {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	background-color: var(--md-sys-color-surface-container);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-sm);
+	box-shadow: var(--elevation-2);
+	z-index: 9999;
+	overflow-y: auto;
+	margin-top: 4px;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-8px);
+	max-height: 300px;
+	transition: opacity var(--transition-normal), visibility var(--transition-normal), transform var(--transition-normal);
+}
+
+.dept-mgmt-custom-dropdown.open .dept-mgmt-dropdown-menu {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+.dept-mgmt-dropdown-option {
+	width: 100%;
+	padding: var(--spacing-md);
+	border: none;
+	background-color: transparent;
+	color: var(--md-sys-color-on-surface);
+	text-align: left;
+	cursor: pointer;
+	transition: background-color var(--transition-normal);
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-sm);
+	box-sizing: border-box;
+}
+
+.dept-mgmt-dropdown-option:hover {
+	background-color: var(--md-sys-color-surface-container-high);
+}
+
+.dept-mgmt-dropdown-option.selected {
+	background-color: var(--md-sys-color-primary-container);
+	color: var(--md-sys-color-on-primary-container);
+}
+
+.dept-mgmt-dropdown-option.selected .dept-mgmt-option-icon {
+	color: var(--md-sys-color-primary);
+}
+
+/* Checkbox Styles */
+.dept-mgmt-subject-checkbox,
+.dept-mgmt-teacher-checkbox {
+	margin-right: var(--spacing-xs);
+}
+
+.dept-mgmt-subject-checkbox .material-symbols-outlined,
+.dept-mgmt-teacher-checkbox .material-symbols-outlined {
+	font-size: 20px;
+	color: var(--md-sys-color-primary);
+}
+
+/* Assign Form Styles */
+.dept-mgmt-assign-form-section {
+	margin-top: var(--spacing-md);
+	animation: slideDown 0.3s ease-out;
+}
+
+.dept-mgmt-assign-form-container {
+	background-color: var(--md-sys-color-surface-container);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-lg);
+	padding: var(--spacing-lg);
+	box-shadow: var(--elevation-1);
+}
+
+.dept-mgmt-assign-form-header {
+	margin-bottom: var(--spacing-xl);
+	padding-bottom: var(--spacing-md);
+	border-bottom: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.dept-mgmt-assign-form-title {
+	font-family: var(--md-sys-typescale-title-medium-font);
+	font-size: var(--md-sys-typescale-title-medium-size);
+	font-weight: var(--md-sys-typescale-title-medium-weight);
+	color: var(--md-sys-color-on-surface);
+	margin: 0 0 var(--spacing-xs) 0;
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-sm);
+}
+
+.dept-mgmt-assign-form-title::before {
+	content: 'add_circle';
+	font-family: 'Material Symbols Outlined';
+	font-size: var(--md-sys-typescale-title-medium-size);
+	color: var(--md-sys-color-primary);
+}
+
+.dept-mgmt-assign-form-subtitle {
+	font-family: var(--md-sys-typescale-body-medium-font);
+	font-size: var(--md-sys-typescale-body-medium-size);
+	color: var(--md-sys-color-on-surface-variant);
+	margin: 0;
+}
+
+.dept-mgmt-assign-form-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.dept-mgmt-assign-info-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--spacing-lg);
+	margin-bottom: var(--spacing-md);
+}
+
+.dept-mgmt-assign-actions {
+	display: flex;
+	gap: var(--spacing-md);
+	justify-content: flex-end;
+	padding-top: var(--spacing-lg);
+	border-top: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.dept-mgmt-assign-submit-button {
+	background-color: var(--md-sys-color-primary);
+	color: var(--md-sys-color-on-primary);
+	border: none;
+	border-radius: var(--radius-sm);
+	padding: var(--spacing-sm) var(--spacing-lg);
+	font-family: var(--md-sys-typescale-label-large-font);
+	font-size: var(--md-sys-typescale-label-large-size);
+	font-weight: var(--md-sys-typescale-label-large-weight);
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.dept-mgmt-assign-submit-button:hover:not(:disabled) {
+	background-color: var(--md-sys-color-primary-container);
+	color: var(--md-sys-color-on-primary-container);
+}
+
+.dept-mgmt-assign-submit-button:disabled {
+	background-color: var(--md-sys-color-surface-variant);
+	color: var(--md-sys-color-on-surface-variant);
+	cursor: not-allowed;
+	opacity: 0.6;
+}

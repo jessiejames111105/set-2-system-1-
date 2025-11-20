@@ -1,0 +1,661 @@
+/* Schedule Container */
+.schedule-container {
+	margin: 0 auto;
+	color: var(--md-sys-color-on-surface);
+  padding: var(--spacing-lg);
+  height: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for schedule container */
+.schedule-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.schedule-container::-webkit-scrollbar-track {
+  background: var(--md-sys-color-surface-variant);
+  border-radius: var(--radius-sm);
+}
+
+.schedule-container::-webkit-scrollbar-thumb {
+  background: var(--md-sys-color-outline-variant);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-normal);
+}
+
+.schedule-container::-webkit-scrollbar-thumb:hover {
+  background: var(--md-sys-color-outline);
+}
+
+/* Header Styles */
+.grades-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+  gap: var(--spacing-md);
+}
+
+.schedule-page-title {
+  font-family: var(--md-sys-typescale-headline-large-font);
+  font-weight: var(--md-sys-typescale-headline-large-weight);
+  color: var(--md-sys-color-on-surface);
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.schedule-page-subtitle {
+  font-family: var(--md-sys-typescale-body-large-font);
+  font-size: var(--md-sys-typescale-body-large-size);
+  color: var(--md-sys-color-on-surface-variant);
+  margin: 0;
+}
+
+/* Week Navigation */
+.week-navigation {
+	background-color: var(--md-sys-color-surface);
+	padding: var(--spacing-lg) var(--spacing-xl);
+}
+
+.week-title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: var(--spacing-lg);
+}
+
+.week-title span {
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: var(--md-sys-color-on-surface);
+}
+
+/* Day Selector */
+.schedule-day-selector {
+	display: flex;
+	gap: var(--spacing-md);
+}
+
+.schedule-day-btn {
+	background-color: var(--md-sys-color-surface-variant);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-lg);
+	padding: var(--spacing-md) var(--spacing-lg);
+	cursor: pointer;
+	transition: all 0.2s;
+	flex: 1;
+	text-align: center;
+	color: var(--md-sys-color-on-surface-variant);
+}
+
+.schedule-day-btn:hover {
+	background-color: var(--md-sys-color-surface);
+	border-color: var(--md-sys-color-outline);
+}
+
+.schedule-day-btn.active {
+	background-color: var(--md-sys-color-primary-container);
+	color: var(--md-sys-color-on-primary-container);
+	border-color: var(--md-sys-color-primary-container);
+}
+
+.day-name {
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+.day-name-full {
+	display: none;
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+/* Classes Section */
+.classes-section {
+	background-color: var(--md-sys-color-surface);
+	border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+}
+
+.classes-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: var(--spacing-xl);
+	gap: var(--spacing-md);
+}
+
+.classes-section h2 {
+	color: var(--md-sys-color-on-surface);
+	margin: 0;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+/* Refresh Controls */
+.refresh-controls {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-md);
+}
+
+.refresh-button {
+	background-color: var(--md-sys-color-surface-variant);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-md);
+	padding: var(--spacing-sm);
+	cursor: pointer;
+	transition: all 0.2s;
+	color: var(--md-sys-color-on-surface-variant);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+}
+
+.refresh-button:hover:not(:disabled) {
+	background-color: var(--md-sys-color-primary-container);
+	border-color: var(--md-sys-color-primary);
+	color: var(--md-sys-color-on-primary-container);
+}
+
+.refresh-button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.refresh-button .material-symbols-outlined {
+	font-size: 20px;
+}
+
+/* Silent Refresh Indicator */
+.silent-refresh-indicator {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-xs);
+	color: var(--md-sys-color-on-surface-variant);
+	font-size: 0.875rem;
+	opacity: 0.8;
+}
+
+.silent-loader {
+	width: 16px;
+	height: 16px;
+	border: 2px solid var(--md-sys-color-outline-variant);
+	border-top: 2px solid var(--md-sys-color-primary);
+	border-radius: 50%;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+/* Classes List */
+.schedule-classes-grid {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-md);
+}
+
+/* Class Cards */
+.schedule-class-card {
+	background-color: var(--md-sys-color-surface-container);
+	border-radius: var(--radius-lg);
+	padding: var(--spacing-lg);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	transition: all 0.2s;
+	cursor: pointer;
+	color: var(--md-sys-color-on-surface);
+	
+	/* Stagger animation */
+	animation: slideInUp 0.5s ease-out backwards;
+	animation-delay: calc(var(--card-index) * 0.1s);
+}
+
+.schedule-class-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Current class highlight */
+.schedule-class-card.current {
+	border-color: var(--accent, var(--md-sys-color-primary));
+	outline: 3px solid rgba(0,0,0,0);
+	box-shadow: 0 0 0 3px var(--accent, var(--md-sys-color-primary)), 0 6px 18px rgba(0, 0, 0, 0.12);
+	animation: slideInUp 0.5s ease-out backwards, currentPulse 2s infinite;
+	animation-delay: calc(var(--card-index) * 0.1s), 0.5s;
+}
+
+/* Increase font-weight for highlighted teacher cards */
+.schedule-class-card.current .schedule-class-name {
+	font-weight: 700;
+}
+.schedule-class-card.current .schedule-class-time,
+.schedule-class-card.current .schedule-class-location,
+.schedule-class-card.current .schedule-class-teacher,
+.schedule-class-card.current .schedule-class-grade {
+	font-weight: 600;
+}
+
+@keyframes currentPulse {
+	0%, 100% {
+		box-shadow: 0 0 0 2px var(--accent, var(--md-sys-color-primary)), 0 4px 12px rgba(0, 0, 0, 0.1);
+	}
+	50% {
+		box-shadow: 0 0 0 4px var(--accent, var(--md-sys-color-primary)), 0 6px 16px rgba(0, 0, 0, 0.15);
+	}
+}
+
+/* Slide in animation */
+@keyframes slideInUp {
+	0% {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Class Card Colors - Distinct variants that complement blue school brand */
+
+/* Blue - Primary school brand color */
+.schedule-class-card.blue {
+	background-color: var(--md-sys-color-primary-container);
+	border-color: var(--md-sys-color-primary);
+	color: var(--md-sys-color-on-primary-container);
+	--accent: var(--md-sys-color-primary);
+}
+
+.schedule-class-card.blue .schedule-class-name,
+.schedule-class-card.blue .schedule-class-time,
+.schedule-class-card.blue .schedule-class-location,
+.schedule-class-card.blue .schedule-class-teacher,
+.schedule-class-card.blue .schedule-class-grade {
+	color: var(--md-sys-color-on-primary-container);
+}
+
+/* Green - Cool complement to blue */
+.schedule-class-card.green {
+	background-color: #e8f5e8;
+	border-color: #4caf50;
+	color: #1b5e20;
+	--accent: #4caf50;
+}
+
+[data-theme="dark"] .schedule-class-card.green {
+	background-color: #263f26;
+	border-color: #66bb6a;
+	color: #c8e6c9;
+}
+
+.schedule-class-card.green .schedule-class-name,
+.schedule-class-card.green .schedule-class-time,
+.schedule-class-card.green .schedule-class-location,
+.schedule-class-card.green .schedule-class-teacher,
+.schedule-class-card.green .schedule-class-grade {
+	color: inherit;
+}
+
+/* Purple - Analogous to blue */
+.schedule-class-card.purple {
+	background-color: #f3e5f5;
+	border-color: #9c27b0;
+	color: #4a148c;
+	--accent: #9c27b0;
+}
+
+[data-theme="dark"] .schedule-class-card.purple {
+	background-color: #3a2f3b;
+	border-color: #ba68c8;
+	color: #e1bee7;
+}
+
+.schedule-class-card.purple .schedule-class-name,
+.schedule-class-card.purple .schedule-class-time,
+.schedule-class-card.purple .schedule-class-location,
+.schedule-class-card.purple .schedule-class-teacher,
+.schedule-class-card.purple .schedule-class-grade {
+	color: inherit;
+}
+
+/* Yellow/Amber - Warm complement to cool blue */
+.schedule-class-card.yellow {
+	background-color: #fff8e1;
+	border-color: #ffc107;
+	color: #ff6f00;
+	--accent: #ffc107;
+}
+
+[data-theme="dark"] .schedule-class-card.yellow {
+	background-color: #3e3823;
+	border-color: #ffcc02;
+	color: #fff3c4;
+}
+
+.schedule-class-card.yellow .schedule-class-name,
+.schedule-class-card.yellow .schedule-class-time,
+.schedule-class-card.yellow .schedule-class-location,
+.schedule-class-card.yellow .schedule-class-teacher,
+.schedule-class-card.yellow .schedule-class-grade {
+	color: inherit;
+}
+
+/* Orange - Energetic warm tone */
+.schedule-class-card.orange {
+	background-color: #fff3e0;
+	border-color: #ff9800;
+	color: #e65100;
+	--accent: #ff9800;
+}
+
+[data-theme="dark"] .schedule-class-card.orange {
+	background-color: #3e2f23;
+	border-color: #ffb74d;
+	color: #ffe0b2;
+}
+
+.schedule-class-card.orange .schedule-class-name,
+.schedule-class-card.orange .schedule-class-time,
+.schedule-class-card.orange .schedule-class-location,
+.schedule-class-card.orange .schedule-class-teacher,
+.schedule-class-card.orange .schedule-class-grade {
+	color: inherit;
+}
+
+/* Gray - Neutral for lunch/breaks */
+.schedule-class-card.gray {
+	background-color: var(--md-sys-color-surface-variant);
+	border-color: var(--md-sys-color-outline-variant);
+	color: var(--md-sys-color-on-surface);
+	--accent: var(--md-sys-color-outline-variant);
+}
+
+.schedule-class-card.gray .schedule-class-name,
+.schedule-class-card.gray .schedule-class-time,
+.schedule-class-card.gray .schedule-class-location,
+.schedule-class-card.gray .schedule-class-teacher,
+.schedule-class-card.gray .schedule-class-grade {
+	color: inherit;
+}
+
+/* Pink/Rose - Soft contrast to blue */
+.schedule-class-card.pink {
+	background-color: #fce4ec;
+	border-color: #e91e63;
+	color: #880e4f;
+	--accent: #e91e63;
+}
+
+[data-theme="dark"] .schedule-class-card.pink {
+	background-color: #3b2832;
+	border-color: #f06292;
+	color: #f8bbd9;
+}
+
+.schedule-class-card.pink .schedule-class-name,
+.schedule-class-card.pink .schedule-class-time,
+.schedule-class-card.pink .schedule-class-location,
+.schedule-class-card.pink .schedule-class-teacher,
+.schedule-class-card.pink .schedule-class-grade {
+	color: inherit;
+}
+
+/* Light Purple/Lavender - Softer purple variant */
+.schedule-class-card.light-purple {
+	background-color: #ede7f6;
+	border-color: #673ab7;
+	color: #311b92;
+	--accent: #673ab7;
+}
+
+[data-theme="dark"] .schedule-class-card.light-purple {
+	background-color: #332d3a;
+	border-color: #9575cd;
+	color: #d1c4e9;
+}
+
+.schedule-class-card.light-purple .schedule-class-name,
+.schedule-class-card.light-purple .schedule-class-time,
+.schedule-class-card.light-purple .schedule-class-location,
+.schedule-class-card.light-purple .schedule-class-teacher,
+.schedule-class-card.light-purple .schedule-class-grade {
+	color: inherit;
+}
+
+/* Class Header */
+.class-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin-bottom: var(--spacing-md);
+}
+
+.schedule-class-name {
+	margin: 0;
+	font-size: 1.125rem;
+	font-weight: 600;
+	/* Color now handled by parent class card */
+}
+
+.schedule-class-time {
+	font-size: 0.875rem;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-xs);
+	opacity: 0.9;
+	/* Color now handled by parent class card */
+}
+
+/* Class Details */
+.class-details {
+	display: flex;
+	gap: var(--spacing-xl);
+	flex-wrap: wrap;
+}
+
+.schedule-class-location,
+.schedule-class-teacher,
+.schedule-class-grade {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-xs);
+	font-size: 0.875rem;
+	opacity: 0.85;
+	/* Color now handled by parent class card */
+}
+
+.location-icon,
+.teacher-icon {
+	font-size: 0.75rem;
+}
+
+/* Mobile Dropdown Styles */
+.teacher-mobile-dropdown {
+	display: none;
+	position: relative;
+}
+
+.teacher-dropdown-toggle-date {
+	width: 100%;
+	background-color: var(--md-sys-color-surface-variant);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-lg);
+	padding: var(--spacing-md) var(--spacing-lg);
+	cursor: pointer;
+	transition: all 0.2s;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: var(--md-sys-color-on-surface-variant);
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+.teacher-dropdown-toggle-date:hover {
+	background-color: var(--md-sys-color-surface);
+	border-color: var(--md-sys-color-outline);
+}
+
+.teacher-dropdown-icon {
+	transition: transform 0.2s;
+	font-size: 1.2rem;
+}
+
+.teacher-dropdown-icon.open {
+	transform: rotate(180deg);
+}
+
+.teacher-dropdown-menu {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	background-color: var(--md-sys-color-surface);
+	border: 1px solid var(--md-sys-color-outline-variant);
+	border-radius: var(--radius-lg);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	z-index: 1000;
+	margin-top: var(--spacing-xs);
+	overflow: hidden;
+}
+
+.teacher-dropdown-item {
+	width: 100%;
+	padding: var(--spacing-md) var(--spacing-lg);
+	border: none;
+	background-color: transparent;
+	color: var(--md-sys-color-on-surface);
+	cursor: pointer;
+	transition: background-color 0.2s;
+	text-align: left;
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+.teacher-dropdown-item:hover {
+	background-color: var(--md-sys-color-surface-variant) !important;
+}
+
+.teacher-dropdown-item.selected {
+	background-color: var(--md-sys-color-primary-container);
+	color: var(--md-sys-color-on-primary-container);
+}
+
+.teacher-dropdown-item.selected:hover {
+	background-color: var(--md-sys-color-primary-container) !important;
+}
+
+
+/* No Classes Message */
+.no-classes-message {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: var(--spacing-xxl) var(--spacing-lg);
+	text-align: center;
+	color: var(--md-sys-color-on-surface-variant);
+}
+
+.no-classes-icon {
+	margin-bottom: var(--spacing-lg);
+}
+
+.no-classes-icon .material-symbols-outlined {
+	font-size: 4rem;
+	color: var(--md-sys-color-primary);
+	opacity: 0.6;
+}
+
+.no-classes-message h3 {
+	font-family: var(--md-sys-typescale-headline-small-font);
+	font-size: var(--md-sys-typescale-headline-small-size);
+	font-weight: var(--md-sys-typescale-headline-small-weight);
+	color: var(--md-sys-color-on-surface);
+	margin: 0 0 var(--spacing-md) 0;
+}
+
+.no-classes-message p {
+	font-family: var(--md-sys-typescale-body-large-font);
+	font-size: var(--md-sys-typescale-body-large-size);
+	color: var(--md-sys-color-on-surface-variant);
+	margin: 0;
+	max-width: 300px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+	.schedule-schedule-header h1 {
+		font-size: 1.5rem;
+	}
+
+	.week-navigation {
+		padding: var(--spacing-md) var(--spacing-lg);
+	}
+
+	.schedule-day-selector {
+		display: none;
+	}
+
+	.teacher-mobile-dropdown {
+		display: block;
+	}
+
+	.classes-section {
+		padding: var(--spacing-sm);
+	}
+
+	.class-header {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--spacing-sm);
+	}
+
+	.class-details {
+		justify-content: space-between;
+	}
+
+	.class-header {
+		flex-direction: row;
+		align-items: center;
+	}
+}
+
+@media (max-width: 480px) {
+	.day-selector {
+		flex-direction: column;
+	}
+
+	.day-name {
+		display: none;
+	}
+
+	.day-name-full {
+		display: block;
+	}
+
+	.class-details {
+		justify-content: space-between;
+	}
+
+	.class-header {
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.schedule-day-btn {
+		flex: none;
+	}
+
+	.week-title {
+		gap: var(--spacing-md);
+	}
+}
